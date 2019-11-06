@@ -1,4 +1,6 @@
 :root {
+	--liesVar: blue;
+	--codeVar: gray;
 
 }
 
@@ -9,13 +11,25 @@
 
 html, body {
   height: 100%;
+	font-size: 26vh;
 }
 
-#svg-container {
+a {
+	text-decoration:none
+
+}
+
+#codeShape {
 	position: fixed;
 	height: 100%;
 	width: 100%;
-	color: gray;
+	z-index: -1;
+}
+
+#liesShape {
+	position: fixed;
+	height: 100%;
+	width: 100%;
 	z-index: -1;
 }
 
@@ -33,16 +47,32 @@ html, body {
 	font-family: Dosis, monospace;
 }
 
-#lieslink {
+#liesDiv {
+	background-color: var(--liesVar);
+	border-radius: 8vh;
+}
 
+#lieslink {
+color: var(--codeVar);
+
+}
+
+#lieslink:hover {
+color: var(--codeVar);
+
+}
+
+#liesDiv:hover {
+	color: var(--liesVar);
+	background: var(--codeVar);
 }
 
 #codelink {
-
+color: var(--liesVar);
 
 }
 
-button {
-	width: 50px;
-	height: 30px;
+#CodeDiv {
+	background-color: var(--liesVar);
+	border-radius: 8vh;
 }
