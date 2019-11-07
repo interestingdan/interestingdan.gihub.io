@@ -1,6 +1,10 @@
 :root {
-	--liesVar: blue;
-	--codeVar: gray;
+	--liesBackGround: blue;
+	--codeBackGround: gray;
+	--codeTypeFace: ;
+	--codeTypeFaceUrl: ;
+	--liesTypeFace: 'Playfair Display', fantasy;
+	--liesTypeFaceUrl: "https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap"
 
 }
 
@@ -11,11 +15,13 @@
 
 html, body {
   height: 100%;
-	font-size: 26vh;
+	font-size: 18vmin;
 }
 
 a {
-	text-decoration:none
+	text-decoration:none;
+	color: inherit;
+	font-family: inherit;
 
 }
 
@@ -34,7 +40,6 @@ a {
 }
 
 #parent {
-
 	height: 100%;
 	display: flex;
 	align-items: center;
@@ -48,31 +53,26 @@ a {
 }
 
 #liesDiv {
-	background-color: var(--liesVar);
-	border-radius: 8vh;
-}
-
-#lieslink {
-color: var(--codeVar);
-
-}
-
-#lieslink:hover {
-color: var(--codeVar);
+	background-color: var(--liesBackGround);
+	color: var(--codeBackGround);
+	border-radius: 8em;
+	font-family: var(--liesTypeFace);
 
 }
 
 #liesDiv:hover {
-	color: var(--liesVar);
-	background: var(--codeVar);
+	background-color: var(--codeBackGround);
+	color: var(--liesBackGround);
 }
 
-#codelink {
-color: var(--liesVar);
 
+#codeDiv {
+	background-color: var(--codeBackGround);
+	color: var(--liesBackGround);
+	border-radius: 8em;
 }
 
-#CodeDiv {
-	background-color: var(--liesVar);
-	border-radius: 8vh;
+#codeDiv:hover {
+	color: var(--codeBackGround);
+	background-color: var(--liesBackGround);
 }
