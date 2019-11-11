@@ -2,9 +2,9 @@
 	--liesBackGround: white;
 	--codeBackGround: black;
 	--codeTypeFace: ;
-	--codeTypeFaceUrl: ;
-	--liesTypeFace: ;
-	--liesTypeFaceUrl: "https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap"
+	--liesTypeFace:
+;
+
 
 }
 
@@ -15,7 +15,7 @@
 
 html, body {
   height: 100%;
-	font-size: 18vmin;
+	font-size: 10vmin;
 }
 
 a {
@@ -46,17 +46,18 @@ a {
 	justify-content: center;
  }
 #mainlink {
-	width: 100%;
+	width: 80%;
 	display: flex;
 	justify-content:space-around;
-	font-family: Dosis, monospace;
+	font-family: inherit;
 }
 
 #liesDiv {
 	background-color: var(--liesBackGround);
 	color: var(--codeBackGround);
+	padding: 0.05em 0.4em 0em 0.4em;
 	border-radius: 8em;
-	font-family: var(--liesTypeFace);
+	font-family: 'Handlee', cursive;
 
 }
 
@@ -69,7 +70,10 @@ a {
 #codeDiv {
 	background-color: var(--codeBackGround);
 	color: var(--liesBackGround);
+	padding: 0.05em 0.4em 0em 0.4em;
 	border-radius: 8em;
+	font-size: 2.3em;
+	font-family: 'Geo', sans-serif;
 }
 
 #codeDiv:hover {
