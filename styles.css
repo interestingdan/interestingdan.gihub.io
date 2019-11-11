@@ -1,9 +1,9 @@
 :root {
-	--liesBackGround: blue;
-	--codeBackGround: gray;
+	--liesBackGround: white;
+	--codeBackGround: black;
 	--codeTypeFace: ;
 	--codeTypeFaceUrl: ;
-	--liesTypeFace: 'Playfair Display', fantasy;
+	--liesTypeFace: ;
 	--liesTypeFaceUrl: "https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap"
 
 }
