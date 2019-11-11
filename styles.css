@@ -49,15 +49,42 @@ a {
 	width: 80%;
 	display: flex;
 	justify-content:space-around;
-	font-family: inherit;
+	font-size: 1.6em;
+
 }
 
-#liesDiv {
+
+
+#codeLink {
+	font-family: geo, monospace;
+	color: var(--liesBackGround);
+	font-size: inherit;
+	background-color: blue;
+	margin: 1em;
+}
+
+#liesLink {
+	font-family: romanesco, cursive;
+	color: var(--codeBackGround);
+	font-size: inherit;
+		background-color: green;
+		margin: 1em;
+}
+
+#liesLink:hover {
+	color: gray;
+}
+
+#codeLink:hover {
+	color: gray;
+}
+
+/*#liesDiv {
 	background-color: var(--liesBackGround);
 	color: var(--codeBackGround);
 	padding: 0.05em 0.4em 0em 0.4em;
 	border-radius: 8em;
-	font-family: 'Handlee', cursive;
+
 
 }
 
@@ -80,3 +107,4 @@ a {
 	color: var(--codeBackGround);
 	background-color: var(--liesBackGround);
 }
+*/
