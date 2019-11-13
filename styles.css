@@ -60,7 +60,7 @@ button {
 #liesButton {
 	background-color: var(--liesBackGround);
 	color: var(--codeBackGround);
-	font-family: 'Handlee', cursive;
+	font-family: cursive;
 }
 
 #liesButton:hover {
@@ -72,12 +72,34 @@ button {
 #codeButton {
 	background-color: var(--codeBackGround);
 	color: var(--liesBackGround);
-	font-family: 'Geo', sans-serif;
+
+	font-family: 'Geo', monospace;
 }
 
 #codeButton:hover {
 	color: var(--codeBackGround);
 	background-color: var(--liesBackGround);
+}
+
+.topSpace {
+	animation-name: becomeHeader;
+	animation-duration: 10000ms;
+	position: fixed;
+	top: 20px;
+
+}
+
+@keyframes becomeHeader {
+	0% {
+	}
+
+
+
+
+	100% {
+		position: fixed;
+		top: 20px;
+	}
 }
 
 
