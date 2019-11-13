@@ -1,10 +1,9 @@
-
-
 function liesDrawer() {
-	if (document.getElementById("liesButton").classList.contains("topSpace")) {
-	document.getElementById("liesButton").classList.remove("topSpace");
+	var justClicked = document.getElementsByClassName("liesButton");
+	if (justClicked[0].id == "topSpace") {
+	justClicked[0].removeAttribute("id");
 } else {
-	document.getElementById("liesButton").classList.add("topSpace");
+	justClicked[0].setAttribute("id","topSpace");
 }
-	console.log("function fired");
+
 }

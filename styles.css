@@ -14,20 +14,18 @@
 }
 
 html, body {
-  height: 100%;
-	font-size: 4vw;
+
+	font-size: 3vmax;
 }
 
 button {
-	text-decoration:none;
-	color: inherit;
-	font-family: inherit;
-	width: 5rem;
-	height: 2.6rem;
-	font-size: 1.6rem;
+	width: 12vw;
+	height: 12vh;
+	font-size: 1.3rem;
 	border: none;
 	border-radius: 8em;
-
+	top: 44vh;
+	text-justify: center;
 }
 
 #codeShape {
@@ -43,54 +41,58 @@ button {
 	width: 100%;
 	z-index: -1;
 }
-
+/*
 #parent {
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
  }
+/*
 #mainlink {
 	width: 75%;
 	display: flex;
 	justify-content:space-around;
 	font-family: inherit;
-}
+}*/
 
-#liesButton {
+.liesButton {
 	background-color: var(--liesBackGround);
 	color: var(--codeBackGround);
 	font-family: cursive;
+	position: fixed;
+	left: 29%;
 }
 
-#liesButton:hover {
+.liesButton:hover {
 	background-color: var(--codeBackGround);
 	color: var(--liesBackGround);
 }
 
 
-#codeButton {
+.codeButton {
 	background-color: var(--codeBackGround);
 	color: var(--liesBackGround);
-
 	font-family: 'Geo', monospace;
+	position: fixed;
+	left: 59%;
 }
 
-#codeButton:hover {
+.codeButton:hover {
 	color: var(--codeBackGround);
 	background-color: var(--liesBackGround);
 }
 
-.topSpace {
-	animation-name: becomeHeader;
-	animation-duration: 10000ms;
+#topSpace {
 	position: fixed;
-	top: 20px;
-
+	top: 3vh;
+	color: blue;
 }
 
 @keyframes becomeHeader {
 	0% {
+		position: fixed;
+		top: 44vh;
 	}
 
 
@@ -98,7 +100,7 @@ button {
 
 	100% {
 		position: fixed;
-		top: 20px;
+		top: 3vh;
 	}
 }
 
