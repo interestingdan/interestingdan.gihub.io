@@ -31,6 +31,13 @@ button {
 	transition-timing-function: ease-out;
 }
 
+
+
+
+button:focus {
+  outline: none;
+}
+
 .codeShape {
 	position: fixed;
 	height: 100%;
