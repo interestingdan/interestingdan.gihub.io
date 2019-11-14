@@ -14,33 +14,64 @@
 }
 
 html, body {
-
+	background-color: var(--liesBackGround);
 	font-size: 3vmax;
 }
 
 button {
 	width: 12vw;
 	height: 12vh;
-	font-size: 1.3rem;
+	font-size: 1.2rem;
 	border: none;
 	border-radius: 8em;
-	top: 44vh;
+	top: 42vh;
 	text-justify: center;
+	transition-property:all;
+	transition-duration: .3s;
+	transition-timing-function: ease-out;
 }
 
-#codeShape {
+.codeShape {
 	position: fixed;
 	height: 100%;
 	width: 100%;
-	z-index: -1;
+	fill="var(--codeBackGround)"
+	transition-property:all;
+	transition-duration: .3s;
+	transition-timing-function: ease-out;
+	/*z-index: -1;*/
 }
 
-#liesShape {
+.codeShapePoly {
+	transition-property:all;
+	transition-duration: .3s;
+	transition-timing-function: ease-out;
+}
+
+#codeShapeCodeDrawer {
+	top: -100%;
+	bottom: -100%;
+	height: 600%;
+	width: 600%;
+}
+
+#codeShapeLiesDrawer {
+	top: -20%;
+	bottom: -20%;
+	height: 200%;
+	width: 200%;
+}
+
+
+
+/*#liesShape {
 	position: fixed;
 	height: 100%;
 	width: 100%;
-	z-index: -1;
-}
+	/*z-index: -1;
+}*/
+
+
 /*
 #parent {
 	height: 100%;
@@ -61,7 +92,7 @@ button {
 	color: var(--codeBackGround);
 	font-family: cursive;
 	position: fixed;
-	left: 29%;
+	left: 24%;
 }
 
 .liesButton:hover {
@@ -75,7 +106,7 @@ button {
 	color: var(--liesBackGround);
 	font-family: 'Geo', monospace;
 	position: fixed;
-	left: 59%;
+	left: 64%;
 }
 
 .codeButton:hover {
@@ -83,26 +114,26 @@ button {
 	background-color: var(--liesBackGround);
 }
 
+
 #topSpace {
 	position: fixed;
 	top: 3vh;
-	color: blue;
+	left: 44%
+
 }
 
-@keyframes becomeHeader {
+/*@keyframes becomeHeader {
 	0% {
 		position: fixed;
 		top: 44vh;
 	}
 
-
-
-
 	100% {
 		position: fixed;
-		top: 3vh;
+		top: 3%;
+
 	}
-}
+}*/
 
 
 /*#liesDiv {
