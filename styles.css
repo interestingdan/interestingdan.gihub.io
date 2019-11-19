@@ -1,11 +1,7 @@
 :root {
 	--liesBackGround: white;
 	--codeBackGround: black;
-	--codeTypeFace: ;
-	--liesTypeFace:
-;
-
-
+	--fromSide: 26vw;
 }
 
 * {
@@ -15,10 +11,27 @@
 
 html, body {
 	background-color: var(--liesBackGround);
-	font-size: 3vmax;
+
 }
 
 button {
+	width: 18vw;
+	height: 12vh;
+	font-size: 7.5vh;
+	border: none;
+	border-radius: 8em;
+	top: 44vh;
+	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, background-color 0.07s;
+/*	transition-property:left,top;
+	transition-duration:.9s;
+	transition-timing-function: ease-in;*/
+}
+
+button:focus {
+  outline: none;
+}
+
+/*.buttonClass {
 	width: 12vw;
 	height: 12vh;
 	font-size: 1.2rem;
@@ -29,26 +42,62 @@ button {
 	transition-property:all;
 	transition-duration: .3s;
 	transition-timing-function: ease-out;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+*/
+.liesButton {
+	background-color: var(--liesBackGround);
+	color: var(--codeBackGround);
+	font-family: cursive;
+	position: fixed;
+	left: 12vw;
+}
+
+.liesButton:hover {
+	background-color: var(--codeBackGround);
+	color: var(--liesBackGround);
+}
+
+#liesClicked {
+	position: fixed;
+	left: 52vw;
+	top: 84vh;
+}
+
+.codeButton {
+	background-color: var(--codeBackGround);
+	color: var(--liesBackGround);
+	font-family: 'Geo', monospace;
+	position: fixed;
+	left: 68vw;
+}
+
+.codeButton:hover {
+	color: var(--codeBackGround);
+	background-color: var(--liesBackGround);
+	transition-property: all;
+	transition-duration: .07s;
+}
+
+#codeHide {
+	position: fixed;
+	left: 108vw;
+	top: 84vh;
 }
 
 
-
-
-button:focus {
-  outline: none;
-}
-
-.codeShape {
+#shape {
 	position: fixed;
 	height: 100%;
 	width: 100%;
 	fill="var(--codeBackGround)"
-	transition-property:all;
-	transition-duration: .3s;
-	transition-timing-function: ease-out;
-	/*z-index: -1;*/
+	z-index: -1;
 }
 
+
+/*
 .codeShapePoly {
 	transition-property:all;
 	transition-duration: .3s;
@@ -68,7 +117,7 @@ button:focus {
 	height: 200%;
 	width: 200%;
 }
-
+*/
 
 
 /*#liesShape {
@@ -94,40 +143,7 @@ button:focus {
 	font-family: inherit;
 }*/
 
-.liesButton {
-	background-color: var(--liesBackGround);
-	color: var(--codeBackGround);
-	font-family: cursive;
-	position: fixed;
-	left: 24%;
-}
 
-.liesButton:hover {
-	background-color: var(--codeBackGround);
-	color: var(--liesBackGround);
-}
-
-
-.codeButton {
-	background-color: var(--codeBackGround);
-	color: var(--liesBackGround);
-	font-family: 'Geo', monospace;
-	position: fixed;
-	left: 64%;
-}
-
-.codeButton:hover {
-	color: var(--codeBackGround);
-	background-color: var(--liesBackGround);
-}
-
-
-#topSpace {
-	position: fixed;
-	top: 3vh;
-	left: 44%
-
-}
 
 /*@keyframes becomeHeader {
 	0% {
