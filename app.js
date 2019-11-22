@@ -1,11 +1,13 @@
 var growBackground = document.getElementById("growBackground");
 var shrinkBackground = document.getElementById("shrinkBackground");
-var shape = document.getElementById("shape")
+var shape = document.getElementById("shape");
 var buttons = document.getElementsByTagName("button");
 var liesButton = document.getElementsByClassName("liesButton");
 var codeButton = document.getElementsByClassName("codeButton");
 var liesMove = "100,65 100,100 65,100";
-var codeMove = "35,0.000001 100,0.000001 100,100 0.000001,100 0.000001,35"
+var codeMove = "35,0.000001 100,0.000001 100,100 0.000001,100 0.000001,35";
+var liesLinks = document.getElementById("liesLinksHide");
+var htmlEl = document.getElementsByTagName("html")[0];
 /*function liesDrawer() {
 	var justClicked = document.getElementsByClassName("liesButton");
 	if (justClicked[0].id == "topSpace") {
@@ -66,6 +68,8 @@ Velocity(shrinkBackground, {
 	});
 liesButton[0].setAttribute("id","liesClicked");
 codeButton[0].setAttribute("id","codeHide");
+liesLinks.setAttribute("id","liesLinksShow");
+htmlEl.style.overflow = "auto";
 }
 
 function code(){

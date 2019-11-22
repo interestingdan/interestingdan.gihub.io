@@ -1,6 +1,6 @@
 :root {
 	--liesBackGround: white;
-	--codeBackGround: blue;
+	--codeBackGround: black;
 	--buttonWidth: 14%;
 	--buttonHeight: 7%;
 	--buttonOffset: 38%;
@@ -13,6 +13,7 @@
 }
 
 html, body {
+	overflow: hidden;
 	background-color: var(--liesBackGround);
 }
 
@@ -23,6 +24,7 @@ html, body {
 	display: flex;
   align-items: center;
 	justify-content: center;
+	z-index: 2;
 }
 
 #buttonContainer {
@@ -40,15 +42,17 @@ button {
 	top: 44vh;
 	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, background-color 0.07s;
 	position: absolute;
-	z-index:10;
 /*	transition-property:left,top;
 	transition-duration:.9s;
 	transition-timing-function: ease-in;*/
 }
 
-/*	button:focus {
-  outline: none;
-}*/
+	button:focus {
+  /*outline: none;*/
+	/*border-style: double;
+	border-width: thick;
+	border-color: var(--liesBackGround);*/
+}
 
 .liesButton {
 	background-color: var(--liesBackGround);
@@ -173,25 +177,62 @@ button {
 	z-index: -1;
 }
 
-#linksContainer {
-	position: fixed;
+#linksContainerParent {
 	width: 100%;
 	height: 100%;
 	display: flex;
-	align-items: center;
+  align-items: center;
 	justify-content: center;
+	z-index: -1;
+
+}
+
+#linksContainer {
+	width: 100%;
+	height: 100vw;
+	position: relative;
+}
+
+.linksClass {
+	width: 60%;
+	position: absolute;
+	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, opacity 0.5s ease-in;
+}
+
+.liesLinks {
+	color: var(--codeBackGround);
+}
+
+#liesLinksHide {
+
+	position: fixed;
+	opacity: 0;
+	visibility: hidden;
+	left:calc(20% - var(--clickedShift)) ;
+	top: calc(0% - var(--clickedShift));
+
+}
+
+#liesLinksShow {
+	position: absolute;
+	opacity: 1;
+	visibility: visible;
+	left: 20%;
+	top: 0%;
 	z-index: 2;
 }
 
-#liesLinks {
-	position: relative;
+.faderHide {
+	position: fixed;
 	width: 60%;
-	height: auto;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	z-index: 2;
-	/*visibility: hidden;*/
+	left: 20%;
+	top: calc(100vh - var(--buttonHeight));
+	height: var(--buttonHeight);
+	z-index: 3;
+}
+
+#liesFaderShow {
+	color: linear-gradient(270deg, var(--liesBackGround),);
 }
 
 .portItem {
