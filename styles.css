@@ -1,11 +1,10 @@
 :root {
 	--liesBackGround: white;
 	--codeBackGround: black;
-	--codeTypeFace: ;
-	--liesTypeFace:
-;
-
-
+	--buttonWidth: 14%;
+	--buttonHeight: 7%;
+	--buttonOffset: 38%;
+	--clickedShift: 33%;
 }
 
 * {
@@ -14,93 +13,333 @@
 }
 
 html, body {
-  height: 100%;
-	font-size: 4vw;
+	overflow: hidden;
+	background-color: var(--liesBackGround);
+}
+
+a {
+	text-decoration:none;
+	color: inherit;
+
+}
+
+#buttonContainerParent {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	display: flex;
+  align-items: center;
+	justify-content: center;
+	z-index: 2;
+}
+
+#buttonContainer {
+	width: 100%;
+	height: 100vw;
+	position: relative;
 }
 
 button {
-	text-decoration:none;
-	color: inherit;
-	font-family: inherit;
-	width: 5rem;
-	height: 2.6rem;
-	font-size: 1.6rem;
+	width: var(--buttonWidth);
+	height: var(--buttonHeight);
+	font-size: 7.5vh;
 	border: none;
 	border-radius: 8em;
-
+	top: 44vh;
+	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, background-color 0.07s;
+	position: absolute;
+/*	transition-property:left,top;
+	transition-duration:.9s;
+	transition-timing-function: ease-in;*/
 }
 
-#codeShape {
+	button:focus {
+  /*outline: none;*/
+	/*border-style: double;
+	border-width: thick;
+	border-color: var(--liesBackGround);*/
+}
+
+.liesButton {
+	background-color: var(--liesBackGround);
+	color: var(--codeBackGround);
+	font-family: cursive;
+	top: calc(
+		var(--buttonOffset) - calc(
+			var(--buttonHeight) / 2));
+	left: calc(
+		var(--buttonOffset) - calc(
+			var(--buttonWidth) / 2));
+}
+
+.liesButton:hover {
+	background-color: var(--codeBackGround);
+	color: var(--liesBackGround);
+}
+
+#liesClicked {
+	top: calc(var(--clickedShift) +
+		calc(
+		var(--buttonOffset) - calc(
+			var(--buttonHeight) / 2)));
+	left: calc(var(--clickedShift) +
+		calc(
+		var(--buttonOffset) - calc(
+			var(--buttonWidth) / 2)));
+}
+
+#codeHide {
+	top:
+		calc(var(--clickedShift) +
+			calc(100% -
+				calc(
+					var(--buttonOffset) + calc(
+						var(--buttonHeight) / 2
+						)
+					)
+				)
+			);
+	left:
+		calc(var(--clickedShift) +
+			calc(100% -
+				calc(
+					var(--buttonOffset) + calc(
+						var(--buttonWidth) / 2
+						)
+					)
+				)
+			);
+}
+
+.codeButton {
+	background-color: var(--codeBackGround);
+	color: var(--liesBackGround);
+	font-family: 'Geo', monospace;
+	top: calc(100% -
+		calc(
+			var(--buttonOffset) + calc(
+				var(--buttonHeight) / 2
+			)
+		)
+	);
+	left: calc(100% -
+		calc(
+			var(--buttonOffset) + calc(
+				var(--buttonWidth) / 2
+			)
+		)
+	);
+}
+
+.codeButton:hover {
+	color: var(--codeBackGround);
+	background-color: var(--liesBackGround);
+}
+
+#codeClicked {
+	top: calc(
+		calc(100% -
+			calc(
+				var(--buttonOffset) + calc(
+					var(--buttonHeight) / 2
+				)
+			)
+		)
+	- var(--clickedShift)
+	);
+	left: calc(
+		calc(100% -
+			calc(
+				var(--buttonOffset) + calc(
+					var(--buttonWidth) / 2
+			)
+		)
+	- var(--clickedShift)	)
+	);
+}
+
+#liesHide {
+	top: calc(
+		calc(
+			var(--buttonOffset) - calc(
+				var(--buttonHeight) / 2)
+				)
+		- var(--clickedShift)
+		);
+	left: calc(
+		calc(
+			var(--buttonOffset) - calc(
+				var(--buttonWidth) / 2)
+				)
+		- var(--clickedShift)
+		);
+}
+
+#shape {
 	position: fixed;
 	height: 100%;
 	width: 100%;
+	fill="var(--codeBackGround)"
 	z-index: -1;
 }
 
-#liesShape {
+#linksContainerParent {
+	width: 100%;
+	height: 100%;
+	display: flex;
+  align-items: center;
+	justify-content: center;
+	z-index: -1;
+
+}
+
+#linksContainer {
+	width: 100%;
+	height: 100vw;
+	position: relative;
+}
+
+.linksClass {
+	width: 60%;
+	position: absolute;
+	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, opacity 0.5s ease-in;
+}
+
+.liesLinks {
+	color: var(--codeBackGround);
+}
+
+#liesLinksHide {
+
+	position: fixed;
+	opacity: 0;
+	visibility: hidden;
+	left:calc(20% - var(--clickedShift)) ;
+	top: calc(0% - var(--clickedShift));
+
+}
+
+#liesLinksShow {
+	position: absolute;
+	opacity: 1;
+	visibility: visible;
+	left: 20%;
+	top: 0%;
+	z-index: 2;
+}
+
+.faderHide {
+	position: fixed;
+	width: 60%;
+	left: 20%;
+	top: calc(100vw - var(--buttonHeight));
+	height: var(--buttonHeight);
+	z-index: 3;
+}
+
+#liesFaderShow {
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e5e5e5+0,ffffff+100&0+0,1+100 */
+	background: -moz-linear-gradient(top,  rgba(229,229,229,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(229,229,229,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(229,229,229,0) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e5e5e5', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+}
+
+.portItem {
+	display: flex;
+	padding: 3%;
+	font-family: Lato, cursive;
+	align-items: center;
+}
+
+.portWords {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	line-height: 1.6em;
+}
+
+.portHeadText {
+	font-size: 2.4vw;
+	font-weight: 400;
+	line-height: 1.8em;
+}
+
+.portIntroText {
+	width: 80%;
+	font-size: 1.8vw;
+	font-weight: 300;
+	line-height: 1.6em;
+}
+
+.portImg {
+	width: 11vw;
+	height: 11vw;
+	border-radius: 50%;
+	margin-right: 4%
+}
+
+/*
+.codeShapePoly {
+	transition-property:all;
+	transition-duration: .3s;
+	transition-timing-function: ease-out;
+}
+
+#codeShapeCodeDrawer {
+	top: -100%;
+	bottom: -100%;
+	height: 600%;
+	width: 600%;
+}
+
+#codeShapeLiesDrawer {
+	top: -20%;
+	bottom: -20%;
+	height: 200%;
+	width: 200%;
+}
+*/
+
+
+/*#liesShape {
 	position: fixed;
 	height: 100%;
 	width: 100%;
-	z-index: -1;
-}
+	/*z-index: -1;
+}*/
 
+
+/*
 #parent {
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
  }
+/*
 #mainlink {
 	width: 75%;
 	display: flex;
 	justify-content:space-around;
 	font-family: inherit;
-}
-
-#liesButton {
-	background-color: var(--liesBackGround);
-	color: var(--codeBackGround);
-	font-family: cursive;
-}
-
-#liesButton:hover {
-	background-color: var(--codeBackGround);
-	color: var(--liesBackGround);
-}
+}*/
 
 
-#codeButton {
-	background-color: var(--codeBackGround);
-	color: var(--liesBackGround);
 
-	font-family: 'Geo', monospace;
-}
-
-#codeButton:hover {
-	color: var(--codeBackGround);
-	background-color: var(--liesBackGround);
-}
-
-.topSpace {
-	animation-name: becomeHeader;
-	animation-duration: 10000ms;
-	position: fixed;
-	top: 20px;
-
-}
-
-@keyframes becomeHeader {
+/*@keyframes becomeHeader {
 	0% {
+		position: fixed;
+		top: 44vh;
 	}
-
-
-
 
 	100% {
 		position: fixed;
-		top: 20px;
+		top: 3%;
+
 	}
-}
+}*/
 
 
 /*#liesDiv {

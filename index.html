@@ -5,28 +5,88 @@
 			Aaron J Matthews
 		</title>
 		<link rel="stylesheet" Type="text/css" href="styles.css">
-		<link href="https://fonts.googleapis.com/css?family=Geo|Romanesco" rel="stylesheet">
-
+		<link href="https://fonts.googleapis.com/css?family=Geo|Romanesco|Lato:300,400" rel="stylesheet">
 	</head>
 	<body>
-
-    	<svg id="codeShape" width='100%' height='100%' viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon points="60,0 100,0 100,100 40,100" fill="var(--codeBackGround)"/>
-    	</svg>
-			<svg id="liesShape" width='100%' height='100%' viewBox="0 0 100 100" preserveAspectRatio="none">
-				<polygon points="0,0 60,0 0,40 0,100" fill="var(--liesBackGround)"/>
-			</svg>
-		<div id="parent">
-			<div id="mainlink">
-				<!--<div id="liesDiv">-->
-					<button id="liesButton" onclick="liesDrawer()" type="button">Lies</button>
-				<!--</div>-->
-				<div id="codeDiv">
-					<button id="codeButton">code</button>
+    <!--<svg  id="shape" width='100%' height='100%' viewbox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+			<polygon id="shrinkBackground" points="100,0 100,100 0,100" fill="var(--codeBackGround)"></polygon>
+			<polygon id="growBackground" points="100,0 100,0 100,100 0,100 0,100" fill="var(--codeBackGround)"></polygon>
+      <!--<polygon class="codeShapePoly" points="75,0 100,0 100,100 25,100"
+    </svg>
+		<svg id="liesShape" width='100%' height='100%' viewBox="0 0 100 100" preserveAspectRatio="none">
+			<polygon points="0,0 75,0 0,25 0,100" fill="var(--liesBackGround)"/>
+		</svg>-->
+	</svg>
+	<!--<svg id = "guides" width='100%' height='100%' viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" style="
+		z-index: 2;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		stroke:green;
+		stroke-width: 0.5;">
+		<line x1="0" y1="0" x2="100" y2="100"></line>
+		<line x1="0" y1="50" x2="100" y2="50"></line>
+		<line x1="100" y1="0" x2="0" y2="100"></line>
+	</svg>-->
+	<div class="faderHide" id="liesFaderShow">
+	</div>
+	<!--<div id="buttonContainerParent">
+		<div id="buttonContainer">
+			<button tabindex="0" class="liesButton" onclick="lies()">
+				Lies
+			</button>
+			<button tabindex="0" class="codeButton" onclick="code()">
+				code
+			</button>
+		</div>
+	</div>-->
+	<div id="linksContainerParent">
+		<div id="linksContainer">
+			<div class="linksClass liesLinks" id="liesLinksShow">
+				<div class="portItem">
+					<img class="portImg" src="testimg.jpg" alt="funny">
+					<div class="portWords">
+					<a class="portHeadText" href="www.google.com"><title>A Very Cool and Interesting Product</title></a>
+					<div class="portIntroText">This is one of the many cool and interesting things I have worked on. I did very good work on it because I am such a smart lad (everyone thinks this).
+					</div>
+				</div>
+			</div>
+			<div class="portItem">
+				<img class="portImg" src="testimg.jpg" alt="funny">
+				<div class="portWords">
+					<a class="portHeadText" href="www.google.com">A Very Cool and Interesting Product</a>
+					<div class="portIntroText">This is one of the many cool and interesting things I have worked on. I did very good work on it because I am such a smart lad (everyone thinks this).
+					</div>
+				</div>
+			</div>
+			<div class="portItem">
+				<img class="portImg" src="testimg.jpg" alt="funny">
+				<div class="portWords">
+					<a class="portHeadText" href="www.google.com">A Very Cool and Interesting Product</a>
+					<div class="portIntroText">This is one of the many cool and interesting things I have worked on. I did very good work on it because I am such a smart lad (everyone thinks this).
+					</div>
+				</div>
+			</div>
+			<div class="portItem">
+				<img class="portImg" src="testimg.jpg" alt="funny">
+				<div class="portWords">
+					<a class="portHeadText" href="www.google.com">A Very Cool and Interesting Product</a>
+					<div class="portIntroText">This is one of the many cool and interesting things I have worked on. I did very good work on it because I am such a smart lad (everyone thinks this).
+					</div>
+				</div>
+			</div>
+			<div class="portItem">
+				<img class="portImg" src="testimg.jpg" alt="funny">
+				<div class="portWords">
+					<a class="portHeadText" href="www.google.com">A Very Cool and Interesting Product</a>
+					<div class="portIntroText">This is one of the many cool and interesting things I have worked on. I did very good work on it because I am such a smart lad (everyone thinks this).
+					</div>
 				</div>
 			</div>
 		</div>
-	<!--<script src="velocity.min.js"></script>-->
+			</div>
+		</div>
+	<script src="node_modules/velocity-animate/velocity.min.js"></script>
 	<script src="app.js"></script>
 	</body>
 </html>
