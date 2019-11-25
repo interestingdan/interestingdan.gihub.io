@@ -235,27 +235,25 @@ button.closeDrawers {
 
 .linksClass {
 	width: 60%;
-	position: absolute;
+	position: fixed;
+	opacity: 0;
+	visibility: hidden;
 	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, opacity 0.5s;
 }
 
 .liesLinks {
 	color: var(--codeBackGround);
-}
-
-.codeLinks {
-	color: var(--liesBackGround);
-}
-
-#liesLinksHide {
-	position: fixed;
-	opacity: 0;
-	visibility: hidden;
 	left:calc(20% - var(--clickedShift)) ;
 	top: calc(0% - var(--clickedShift));
 }
 
-#liesLinksShow {
+.codeLinks {
+	color: var(--liesBackGround);
+	left:calc(50% + var(--clickedShift));
+	top: calc(50% + var(--clickedShift)); //fix this
+}
+
+#linksShow {
 	position: absolute;
 	opacity: 1;
 	visibility: visible;
@@ -264,22 +262,6 @@ button.closeDrawers {
 	z-index: 2;
 }
 
-#codeLinksHide {
-	position: fixed;
-	opacity: 0;
-	visibility: hidden;
-	left:calc(50% + var(--clickedShift)) ;
-	top: calc(50% + var(--clickedShift));
-}
-
-#codeLinksShow {
-	position: absolute;
-	opacity: 1;
-	visibility: visible;
-	left: 20%;
-	top: 0%;
-	z-index: 2;
-}
 
 .faderHide {
 	position: fixed;

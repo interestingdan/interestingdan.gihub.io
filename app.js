@@ -1,16 +1,16 @@
-var growBackground = document.getElementById("growBackground");
-var shrinkBackground = document.getElementById("shrinkBackground");
-var shape = document.getElementById("shape");
-var buttons = document.getElementsByTagName("button");
+var growBackground = document.getElementsByClassName("growBackground")[0];
+var shrinkBackground = document.getElementsByClassName("shrinkBackground")[0];
+var liesLinks = document.getElementsByClassName("liesLinks")[0];
+var codeLinks = document.getElementsByClassName("codeLinks")[0];
 var liesButton = document.getElementsByClassName("liesButton")[0];
 var codeButton = document.getElementsByClassName("codeButton")[0];
-var liesMove = "100,65 100,100 65,100";
-var codeMove = "35,0.000001 100,0.000001 100,100 0.000001,100 0.000001,35";
-var liesLinks = document.getElementById("liesLinksHide");
-var codeLinks = document.getElementById("codeLinksHide");
-var htmlEl = document.getElementsByTagName("html")[0];
 var codeCloser = document.getElementsByClassName("codeCloser")[0];
 var liesCloser = document.getElementsByClassName("liesCloser")[0];
+/*var shape = document.getElementById("shape");*/
+/*var buttons = document.getElementsByTagName("button");*/
+var htmlEl = document.getElementsByTagName("html")[0];
+var liesMove = "100,65 100,100 65,100";
+var codeMove = "35,0.000001 100,0.000001 100,100 0.000001,100 0.000001,35";
 /*function liesDrawer() {
 	var justClicked = document.getElementsByClassName("liesButton");
 	if (justClicked[0].id == "topSpace") {
@@ -71,9 +71,9 @@ function lies(){
 	});
 	liesButton.setAttribute("id","liesClicked");
 	codeButton.setAttribute("id","codeHide");
-	liesLinks.setAttribute("id","liesLinksShow");
-	htmlEl.style.overflow = "auto";
+	liesLinks.setAttribute("id","linksShow");
 	liesCloser.setAttribute("id","closerShow");
+	htmlEl.style.overflow = "auto";
 }
 
 function code(){
@@ -90,27 +90,28 @@ function code(){
 	});
 	liesButton.setAttribute("id","liesHide");
 	codeButton.setAttribute("id","codeClicked");
-	codeLinks.setAttribute("id","codeLinksShow");
-	htmlEl.style.overflow = "auto";
+	codeLinks.setAttribute("id","linksShow");
 	codeCloser.setAttribute("id","closerShow");
+	htmlEl.style.overflow = "auto";
 }
 
 function revert(){
-	console.log("fired");
 	liesButton.removeAttribute("id");
 	codeButton.removeAttribute("id");
-	document.getElementById("liesLinksShow").removeAttribute("id");
-	document.getElementById("codeLinksShow").removeAttribute("id");
+	liesLinks.removeAttribute("id");
+	codeLinks.removeAttribute("id");
+	codeCloser.removeAttribute("id");
+	liesCloser.removeAttribute("id");
+	htmlEl.style.overflow = "hidden";
 	Velocity(shrinkBackground, {
 		points: ["100,0 100,100 0,100"]
 	},{
 		duration: 500
 	});
 	Velocity(growBackground, {
-		points: [codeMove]
+		points: "100,0 100,0 100,100 0,100 0,100"
 	},{
 		duration: 500,
-		easing: "100,0 100,0 100,100 0,100 0,100",
+		easing: "ease-in",
 	});
-
 }
