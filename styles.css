@@ -12,21 +12,18 @@
   margin: 0;
 }
 
-h4 {
-	font-size: 2.4vw;
-	font-weight: 400;
-	line-height: 1.8em;
-}
-
 html, body {
-	/*overflow: hidden;*/
+	overflow: hidden;
 	background-color: var(--liesBackGround);
 }
 
 a {
 	text-decoration:none;
 	color: inherit;
+}
 
+a:hover {
+	text-decoration: underline;
 }
 
 #buttonContainerParent {
@@ -46,17 +43,48 @@ a {
 }
 
 button {
-	width: var(--buttonWidth);
-	height: var(--buttonHeight);
-	font-size: 7.5vh;
-	border: none;
 	border-radius: 8em;
-	top: 44vh;
-	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, background-color 0.07s;
-	position: absolute;
+	border: none;
 /*	transition-property:left,top;
 	transition-duration:.9s;
 	transition-timing-function: ease-in;*/
+}
+
+button.openDrawers {
+	position: absolute;
+	/*top: 44vh;*/
+	width: var(--buttonWidth);
+	height: var(--buttonHeight);
+	font-size: 7.5vh;
+	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, background-color 0.07s;
+}
+
+button.closeDrawers {
+	position: fixed;
+	width: 3vw;
+	height: 3vw;
+	transition: opacity 1.2s;
+	visibility: hidden;
+	opacity: 0;
+
+}
+
+.codeCloser {
+	background-color: var(--codeBackGround);
+	top: 1.5vw;
+	left: 1.5vw;
+}
+
+.liesCloser {
+	background-color: var(--liesBackGround);
+	right: 1.5vw;
+	bottom: 1.5vw;
+}
+
+#closerShow {
+	visibility: visible;
+	opacity: 1;
+	z-index: 10;
 }
 
 	button:focus {
@@ -208,24 +236,43 @@ button {
 .linksClass {
 	width: 60%;
 	position: absolute;
-	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, opacity 0.5s ease-in;
+	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, opacity 0.5s;
 }
 
 .liesLinks {
 	color: var(--codeBackGround);
 }
 
-#liesLinksHide {
+.codeLinks {
+	color: var(--liesBackGround);
+}
 
+#liesLinksHide {
 	position: fixed;
 	opacity: 0;
 	visibility: hidden;
 	left:calc(20% - var(--clickedShift)) ;
 	top: calc(0% - var(--clickedShift));
-
 }
 
 #liesLinksShow {
+	position: absolute;
+	opacity: 1;
+	visibility: visible;
+	left: 20%;
+	top: 0%;
+	z-index: 2;
+}
+
+#codeLinksHide {
+	position: fixed;
+	opacity: 0;
+	visibility: hidden;
+	left:calc(50% + var(--clickedShift)) ;
+	top: calc(50% + var(--clickedShift));
+}
+
+#codeLinksShow {
 	position: absolute;
 	opacity: 1;
 	visibility: visible;
@@ -255,7 +302,7 @@ button {
 .portItem {
 	display: flex;
 	padding: 3%;
-	font-family: Lato, cursive;
+	height: auto;
 	align-items: center;
 }
 
@@ -267,9 +314,10 @@ button {
 }
 
 .portHeadText {
+	font-family: Quicksand, cursive;
 	font-size: 2.4vw;
 	font-weight: 400;
-	line-height: 1.8em;
+	line-height: 1.4em;
 }
 
 .portIntroText {
@@ -277,6 +325,7 @@ button {
 	font-size: 1.8vw;
 	font-weight: 300;
 	line-height: 1.6em;
+	font-family: Lato, cursive;
 }
 
 .portImg {
