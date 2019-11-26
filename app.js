@@ -106,7 +106,8 @@ function revert(){
 	Velocity(shrinkBackground, {
 		points: ["100,0 100,100 0,100"]
 	},{
-		duration: 500
+		duration: 500,
+		easing: "ease-in",
 	});
 	Velocity(growBackground, {
 		points: "100,0 100,0 100,100 0,100 0,100"
