@@ -6,11 +6,15 @@ var liesButton = document.getElementsByClassName("liesButton")[0];
 var codeButton = document.getElementsByClassName("codeButton")[0];
 var codeCloser = document.getElementsByClassName("codeCloser")[0];
 var liesCloser = document.getElementsByClassName("liesCloser")[0];
+var liesFader = document.getElementsByClassName("liesFader")[0];
+var codeFader = document.getElementsByClassName("codeFader")[0];
 /*var shape = document.getElementById("shape");*/
 /*var buttons = document.getElementsByTagName("button");*/
 var htmlEl = document.getElementsByTagName("html")[0];
 var liesMove = "100,65 100,100 65,100";
 var codeMove = "35,0.000001 100,0.000001 100,100 0.000001,100 0.000001,35";
+
+
 /*function liesDrawer() {
 	var justClicked = document.getElementsByClassName("liesButton");
 	if (justClicked[0].id == "topSpace") {
@@ -73,6 +77,7 @@ function lies(){
 	codeButton.setAttribute("id","codeHide");
 	liesLinks.setAttribute("id","linksShow");
 	liesCloser.setAttribute("id","closerShow");
+	liesFader.setAttribute("id","liesFaderShow");
 	htmlEl.style.overflow = "auto";
 }
 
@@ -92,6 +97,7 @@ function code(){
 	codeButton.setAttribute("id","codeClicked");
 	codeLinks.setAttribute("id","linksShow");
 	codeCloser.setAttribute("id","closerShow");
+	codeFader.setAttribute("id","codeFaderShow");
 	htmlEl.style.overflow = "auto";
 }
 
@@ -102,6 +108,8 @@ function revert(){
 	codeLinks.removeAttribute("id");
 	codeCloser.removeAttribute("id");
 	liesCloser.removeAttribute("id");
+	liesFader.removeAttribute("id");
+	codeFader.removeAttribute("id");
 	htmlEl.style.overflow = "hidden";
 	Velocity(shrinkBackground, {
 		points: ["100,0 100,100 0,100"]
