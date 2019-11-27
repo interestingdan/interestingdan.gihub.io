@@ -243,8 +243,11 @@ button.closeDrawers {
 
 .liesLinks {
 	color: var(--codeBackGround);
-	left:calc(20% - var(--clickedShift)) ;
-	top: calc(0% - var(--clickedShift));
+	position: fixed;
+	left: 20%;
+	top: 20%;
+	/*left:calc(20% - var(--clickedShift));
+	top:calc(0% - var(--clickedShift));*/
 }
 
 .codeLinks {
