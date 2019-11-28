@@ -8,38 +8,42 @@
 		<link href="https://fonts.googleapis.com/css?family=Geo|Romanesco|Lato:300|Quicksand:400" rel="stylesheet">
 	</head>
 	<body>
-    <svg  id="shape" width='100%' height='100%' viewbox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-			<polygon class="shrinkBackground" points="100,0 100,100 0,100" fill="var(--codeBackGround)"></polygon>
-			<polygon class="growBackground" points="100,0 100,0 100,100 0,100 0,100" fill="var(--codeBackGround)"></polygon>
-      <!--<polygon class="codeShapePoly" points="75,0 100,0 100,100 25,100"
-    </svg>
-		<svg id="liesShape" width='100%' height='100%' viewBox="0 0 100 100" preserveAspectRatio="none">
-			<polygon points="0,0 75,0 0,25 0,100" fill="var(--liesBackGround)"/>
-		</svg>-->
+	<svg class="shape" width='100%' height='100%' viewbox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+		<polygon class="shrinkBackground" points="100,0 100,100 0,100" fill="var(--codeBackGround)"></polygon>
+		<polygon class="growBackground" points="100,0 100,0 100,100 0,100 0,100" ></polygon>
 	</svg>
-	<!--<svg id = "guides"
-	width='100%' height='100%' viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" style="
+	<svg class="bottomCorner" width="10vw" height="10vw" viewbox="0 0 100 100" preserveAspectRatio="none">
+		<polygon points="100,0 100,100 0,100" ></polygon>
+	</svg>
+	<svg class="topCorner" width="10vw" height="10vw" viewbox="0 0 100 100" preserveAspectRatio="none">
+		<polygon points="0,0 100,0 0,100" fill="var(--liesBackGround)"></polygon>
+	</svg>
+
+	<!--preserveAspectRatio="xMidYMid slice"-->
+	<!--<svg id="guides"
+	width='100%' height='100%' viewBox="0 0 100 100"  preserveAspectRatio="none" style="
 		z-index: 2;
 		position: fixed;
 		height: 100%;
 		width: 100%;
 		stroke:green;
-		stroke-width: 0.5;">
+		stroke-width: 0.3;">
 		<line x1="0" y1="0" x2="100" y2="100"></line>
 		<line x1="0" y1="50" x2="100" y2="50"></line>
 		<line x1="100" y1="0" x2="0" y2="100"></line>
 	</svg>-->
+	<div class="square"></div>
 	<div class="fader liesFader"></div>
 	<div class="fader codeFader"></div>
 	<button class="closeDrawers codeCloser" onclick="revert()"></button>
 	<button class="closeDrawers liesCloser" onclick="revert()"></button>
-			<button tabindex="0" class="openDrawers liesButton" onclick="lies()">
-				Lies
-			</button>
-			<button tabindex="0" class="openDrawers codeButton" onclick="code()">
-				code
-			</button>
-			<div class="linksClass liesLinks">
+	<button tabindex="0" class="openDrawers liesButton" onclick="lies()">
+		Lies
+	</button>
+	<button tabindex="0" class="openDrawers codeButton" onclick="code()">
+		code
+	</button>
+	<div class="linksClass liesLinks">
 				<div class="portItem">
 					<img class="portImg" src="Beta_Commando_Square_Cover_906.jpg" alt="Cover Image for Beta Commando">
 					<div class="portWords">
@@ -81,7 +85,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="linksClass codeLinks">
+	<div class="linksClass codeLinks">
 				<div class="portItem">
 					<img class="portImg" src="Beta_Commando_Square_Cover_906.jpg" alt="Cover Image for Beta Commando">
 					<div class="portWords">
@@ -123,6 +127,11 @@
 					</div>
 				</div>
 			</div>
+		<!--<polygon class="codeShapePoly" points="75,0 100,0 100,100 25,100"
+		</svg>
+		<svg id="liesShape" width='100%' height='100%' viewBox="0 0 100 100" preserveAspectRatio="none">
+			<polygon points="0,0 75,0 0,25 0,100" fill="var(--liesBackGround)"/>
+		</svg>-->
 	<script src="node_modules/velocity-animate/velocity.min.js"></script>
 	<script src="app.js"></script>
 	</body>

@@ -68,7 +68,7 @@ function lies(){
 		duration: 0
 	});
 	Velocity(shrinkBackground, {
-		points: [liesMove]
+		points: /*[liesMove]*/["100,100 100,100 100,100"]
 	},{
 		duration: 500,
 		easing: "ease-in",
@@ -78,7 +78,7 @@ function lies(){
 	liesLinks.setAttribute("id","linksShow");
 	liesCloser.setAttribute("id","closerShow");
 	liesFader.setAttribute("id","liesFaderShow");
-	htmlEl.style.overflow = "auto";
+	/*htmlEl.style.overflow = "auto";*/
 }
 
 function code(){
@@ -98,7 +98,7 @@ function code(){
 	codeLinks.setAttribute("id","linksShow");
 	codeCloser.setAttribute("id","closerShow");
 	codeFader.setAttribute("id","codeFaderShow");
-	htmlEl.style.overflow = "auto";
+	/*htmlEl.style.overflow = "auto";*/
 }
 
 function revert(){
@@ -110,7 +110,7 @@ function revert(){
 	liesCloser.removeAttribute("id");
 	liesFader.removeAttribute("id");
 	codeFader.removeAttribute("id");
-	htmlEl.style.overflow = "hidden";
+	/*htmlEl.style.overflow = "hidden";*/
 	Velocity(shrinkBackground, {
 		points: ["100,0 100,100 0,100"]
 	},{
