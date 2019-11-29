@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/interestingdan/homepage#readme",
   "dependencies": {
+    "overlayscrollbars": "^1.10.0",
     "velocity-animate": "^2.0.5"
   }
 }
