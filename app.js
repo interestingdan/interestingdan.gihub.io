@@ -23,7 +23,7 @@ var codeFader = document.getElementsByClassName("codeFader")[0];
 
 
 
-}
+
 var htmlEl = document.getElementsByTagName("html")[0];
 var liesMove = "100,65 100,100 65,100";
 var codeMove = "1,0.000001 100,0.000001 100,100 0.000001,100 0.000001,1";
