@@ -1,16 +1,22 @@
-const moves = Array.from(document.getElementsByClassName('moves'));
-console.log(moves);
-var growBackground = document.getElementsByClassName("growBackground")[0];
-var shrinkBackground = document.getElementsByClassName("shrinkBackground")[0];
-var liesLinks = document.getElementsByClassName("liesLinks")[0];
+const move = Array.from(document.getElementsByClassName('move'));
+/*var growBackground = document.getElementsByClassName("growBackground")[0];
+var shrinkBackground = document.getElementsByClassName("shrinkBackground")[0];*/
+/*var liesLinks = document.getElementsByClassName("liesLinks")[0];
 var codeLinks = document.getElementsByClassName("codeLinks")[0];
-var linksClass = document.getElementsByClassName("linksClass");
 var liesButton = document.getElementsByClassName("liesButton")[0];
 var codeButton = document.getElementsByClassName("codeButton")[0];
 var codeCloser = document.getElementsByClassName("codeCloser")[0];
 var liesCloser = document.getElementsByClassName("liesCloser")[0];
 var liesFader = document.getElementsByClassName("liesFader")[0];
 var codeFader = document.getElementsByClassName("codeFader")[0];
+*/
+var shrinkBackground = move[0];
+var growBackground = move[1];
+function setIds(idArr) {
+	for (i = 0; i < 10; i++) {
+		move[i].setAttribute("id",idArr[i]);
+	};
+}
 /*var shape = document.getElementById("shape");*/
 /*var buttons = document.getElementsByTagName("button");*/
 /*function getElements(collection) {
@@ -21,12 +27,10 @@ var codeFader = document.getElementsByClassName("codeFader")[0];
 		counter++;
 	}*/
 
-
-
-
-var htmlEl = document.getElementsByTagName("html")[0];
+/*var htmlEl = document.getElementsByTagName("html")[0];
 var liesMove = "100,65 100,100 65,100";
-var codeMove = "1,0.000001 100,0.000001 100,100 0.000001,100 0.000001,1";
+var codeMove = "1,0.000001 100,0.000001 100,100 0.000001,100 0.000001,1";*/
+var linksClass = document.getElementsByClassName("linksClass");
 var options = {};
 document.addEventListener("DOMContentLoaded", function() {
 	OverlayScrollbars(linksClass, options);
@@ -90,12 +94,25 @@ function lies(){
 		duration: 500,
 		easing: "ease-in",
 	});
-	liesButton.setAttribute("id","liesClicked");
+	/*liesButton.setAttribute("id","liesClicked");
 	codeButton.setAttribute("id","codeHide");
 	liesLinks.setAttribute("id","linksShow");
 	liesCloser.setAttribute("id","closerShow");
 	liesFader.setAttribute("id","liesFaderShow");
 	/*htmlEl.style.overflow = "auto";*/
+	var liesIds = [
+		null, //0 shrinkBackGround
+		null, //1 growBackground
+		"liesFaderShow", //2 liesFader
+		null,//3 codeFader
+		null, //4 codeCloser
+		"closerShow",//5 liesCloser
+		"liesClicked",//6liesButton
+		"codeHide",//7codeButton
+		"linksShow",//8 liesLinks
+		null//9 codeLinks
+	];
+	setIds(liesIds);
 }
 
 function code(){
@@ -105,14 +122,27 @@ function code(){
 		duration: 0
 	});
 	Velocity(growBackground, {
-		points: [codeMove]
+		points: ["1,0.000001 100,0.000001 100,100 0.000001,100 0.000001,1"]
 		//points: ["0.000001,0.000001 100,0.000001 100,100 0.000001,100 0.000001,0.000001"]
 		//points: ["35,0.000001 100,0.000001 100,100 0.000001,100 0.000001,35"]
 	},{
 		duration: 500,
 		easing: "ease-in",
 	});
-	liesButton.setAttribute("id","liesHide");
+	var codeIds = [
+	null, //0 shrinkBackGround
+	null, //1 growBackground
+	null, //2 liesFader
+	"codeFaderShow",//3 codeFader
+	"closerShow", //4 codeCloser
+	null,//5 liesCloser
+	"liesHide",//6liesButton
+	"codeClicked",//7codeButton
+	null,//8 liesLinks
+	"linksShow"//9 codeLinks
+	];
+	setIds(codeIds);
+	/*liesButton.setAttribute("id","liesHide");
 	codeButton.setAttribute("id","codeClicked");
 	codeLinks.setAttribute("id","linksShow");
 	codeCloser.setAttribute("id","closerShow");
@@ -121,6 +151,10 @@ function code(){
 }
 
 function revert(){
+	for (i = 0; i < 10; i++) {
+		move[i].removeAttribute("id");
+		};
+	/*
 	liesButton.removeAttribute("id");
 	codeButton.removeAttribute("id");
 	liesLinks.removeAttribute("id");
