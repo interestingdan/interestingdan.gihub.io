@@ -2,9 +2,11 @@
 	--liesBackGround: white;
 	--codeBackGround: black;
 	--buttonWidth: 14%;
-	--buttonHeight: 7%;
-	--buttonOffset: 38%;
-	--clickedShift: 33%;
+	--buttonHeight: 12%;
+	--buttonOffset: 28%;
+	--buttonOffsetX: 28%;
+	--clickedShiftY: 66%;
+	--clickedShiftX: 45%;
 }
 
 * {
@@ -26,7 +28,7 @@ a:hover {
 	text-decoration: underline;
 }
 
-#buttonContainerParent {
+/*#buttonContainerParent {
 	position: fixed;
 	width: 100%;
 	height: 100%;
@@ -40,58 +42,24 @@ a:hover {
 	width: 100%;
 	height: 100vw;
 	position: relative;
-}
+}*/
 
 button {
 	border-radius: 8em;
 	border: none;
+	z-index: 4;
 /*	transition-property:left,top;
 	transition-duration:.9s;
 	transition-timing-function: ease-in;*/
 }
 
 button.openDrawers {
-	position: absolute;
+	position: fixed;
 	/*top: 44vh;*/
 	width: var(--buttonWidth);
 	height: var(--buttonHeight);
 	font-size: 7.5vh;
 	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, background-color 0.07s;
-}
-
-button.closeDrawers {
-	position: fixed;
-	width: 3vw;
-	height: 3vw;
-	transition: opacity 1.2s;
-	visibility: hidden;
-	opacity: 0;
-
-}
-
-.codeCloser {
-	background-color: var(--codeBackGround);
-	top: 1.5vw;
-	left: 1.5vw;
-}
-
-.liesCloser {
-	background-color: var(--liesBackGround);
-	right: 1.5vw;
-	bottom: 1.5vw;
-}
-
-#closerShow {
-	visibility: visible;
-	opacity: 1;
-	z-index: 10;
-}
-
-	button:focus {
-  /*outline: none;*/
-	/*border-style: double;
-	border-width: thick;
-	border-color: var(--liesBackGround);*/
 }
 
 .liesButton {
@@ -112,11 +80,11 @@ button.closeDrawers {
 }
 
 #liesClicked {
-	top: calc(var(--clickedShift) +
+	top: calc(var(--clickedShiftY) +
 		calc(
 		var(--buttonOffset) - calc(
 			var(--buttonHeight) / 2)));
-	left: calc(var(--clickedShift) +
+	left: calc(var(--clickedShiftX) +
 		calc(
 		var(--buttonOffset) - calc(
 			var(--buttonWidth) / 2)));
@@ -124,7 +92,7 @@ button.closeDrawers {
 
 #codeHide {
 	top:
-		calc(var(--clickedShift) +
+		calc(var(--clickedShiftY) +
 			calc(100% -
 				calc(
 					var(--buttonOffset) + calc(
@@ -134,7 +102,7 @@ button.closeDrawers {
 				)
 			);
 	left:
-		calc(var(--clickedShift) +
+		calc(var(--clickedShiftX) +
 			calc(100% -
 				calc(
 					var(--buttonOffset) + calc(
@@ -143,6 +111,7 @@ button.closeDrawers {
 					)
 				)
 			);
+	background-color: none;
 }
 
 .codeButton {
@@ -179,7 +148,7 @@ button.closeDrawers {
 				)
 			)
 		)
-	- var(--clickedShift)
+	- var(--clickedShiftY)
 	);
 	left: calc(
 		calc(100% -
@@ -188,7 +157,7 @@ button.closeDrawers {
 					var(--buttonWidth) / 2
 			)
 		)
-	- var(--clickedShift)	)
+	- var(--clickedShiftX)	)
 	);
 }
 
@@ -198,40 +167,93 @@ button.closeDrawers {
 			var(--buttonOffset) - calc(
 				var(--buttonHeight) / 2)
 				)
-		- var(--clickedShift)
+		- var(--clickedShiftY)
 		);
 	left: calc(
 		calc(
 			var(--buttonOffset) - calc(
 				var(--buttonWidth) / 2)
 				)
-		- var(--clickedShift)
+		- var(--clickedShiftX)
 		);
+			background-color: none;
 }
 
-#shape {
+
+button.closeDrawers {
+	position: fixed;
+	width: 3vw;
+	height: 3vw;
+	transition: opacity 1.2s;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.codeCloser {
+	background-color: var(--codeBackGround);
+	top: 1.5vw;
+	left: 1.5vw;
+}
+
+.liesCloser {
+	background-color: var(--liesBackGround);
+	right: 1.5vw;
+	bottom: 1.5vw;
+}
+
+#closerShow {
+	visibility: visible;
+	opacity: 1;
+	z-index: 10;
+}
+
+	button:focus {
+	/*outline: none;*/
+	/*border-style: double;
+	border-width: thick;
+	border-color: var(--liesBackGround);*/
+}
+
+.shape {
 	position: fixed;
 	height: 100%;
 	width: 100%;
-	fill="var(--codeBackGround)"
+	fill=""
 	z-index: -1;
+	transition:transition: left 0.5s ease-in, top 0.5s ease-in,
 }
 
-#linksContainerParent {
+.bottomCorner {
+	position: fixed;
+	right: 0%;
+	bottom:0%;
+	width:20vw;
+	height:20vw;
+	z-index: 4;
+	fill: var(--codeBackGround);
+}
+
+.topCorner {
+	position: fixed;
+	width:20vw;
+	height:20vw;
+	fill: var(--liesBackGround);
+}
+
+/*#linksContainerParent {
 	width: 100%;
 	height: 100%;
 	display: flex;
   align-items: center;
 	justify-content: center;
 	z-index: -1;
-
 }
 
 #linksContainer {
 	width: 100%;
 	height: 100vw;
 	position: relative;
-}
+}*/
 
 .linksClass {
 	width: 60%;
@@ -244,16 +266,23 @@ button.closeDrawers {
 .liesLinks {
 	color: var(--codeBackGround);
 	position: fixed;
+<<<<<<< HEAD
 	left: 20%;
 	top: 20%;
 	/*left:calc(20% - var(--clickedShift));
 	top:calc(0% - var(--clickedShift));*/
+=======
+	/*left: 20%;
+	top: 20%;*/
+	left:calc(20% - var(--clickedShiftX));
+	top:calc(0% - var(--clickedShiftY));
+>>>>>>> backToFixed
 }
 
 .codeLinks {
 	color: var(--liesBackGround);
-	left:calc(50% + var(--clickedShift));
-	top: calc(50% + var(--clickedShift)); //fix this
+	left:calc(50% + var(--clickedShiftX));
+	top: calc(50% + var(--clickedShiftY)); //fix this
 }
 
 #linksShow {
@@ -262,26 +291,59 @@ button.closeDrawers {
 	visibility: visible;
 	left: 20%;
 	top: 0%;
+	/*top: calc(1.5 * var(--buttonHeight));*/
 	z-index: 2;
+	height: 100%;
+	/*height: calc(100% - calc(1.5 * var(--buttonHeight)));*/
 }
 
+.linksSpacer {
+	/*height: var(--buttonHeight);*/
+	height: calc(1.5 * var(--buttonHeight));
+}
 
-.faderHide {
+.fader {
 	position: fixed;
 	width: 60%;
-	left: 20%;
-	top: calc(100vw - var(--buttonHeight));
-	height: var(--buttonHeight);
-	z-index: 3;
+	height: calc(1.5 * var(--buttonHeight));
+	z-index: -1;
+	opacity: 0;
+	transition: left 0.5s ease-in, top 0.5s ease-in;
+}
+
+.liesFader {
+	top: calc(calc(100% - calc(1.5 * var(--buttonHeight))) - var(--clickedShiftY));
+	left: calc(20% - var(--clickedShiftX));
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+33,ffffff+100&0+0,1+33,1+100 */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 33%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.codeFader {
+	top: calc(0% + var(--clickedShiftY));
+	left: calc(20% + var(--clickedShiftX));
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+66,ffffff+100&1+0,1+66,0+100 */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 66%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 66%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 66%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+
 }
 
 #liesFaderShow {
-	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e5e5e5+0,ffffff+100&0+0,1+100 */
-	background: -moz-linear-gradient(top,  rgba(229,229,229,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  rgba(229,229,229,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  rgba(229,229,229,0) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e5e5e5', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	opacity: 1;
+	z-index: 3;
+	left: 20%;
+	top: calc(100% - calc(1.5 *var(--buttonHeight)));
+}
 
+#codeFaderShow {
+	opacity: 1;
+	z-index: 3;
+	left: 20%;
+	top: 0%;
 }
 
 .portItem {
