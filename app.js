@@ -1,3 +1,5 @@
+const moves = Array.from(document.getElementsByClassName('moves'));
+console.log(moves);
 var growBackground = document.getElementsByClassName("growBackground")[0];
 var shrinkBackground = document.getElementsByClassName("shrinkBackground")[0];
 var liesLinks = document.getElementsByClassName("liesLinks")[0];
@@ -11,13 +13,22 @@ var liesFader = document.getElementsByClassName("liesFader")[0];
 var codeFader = document.getElementsByClassName("codeFader")[0];
 /*var shape = document.getElementById("shape");*/
 /*var buttons = document.getElementsByTagName("button");*/
-var options = {};
+/*function getElements(collection) {
+	var length = moves.length;
+	var counter = 0;
+	while (counter < length) {
+		;
+		counter++;
+	}*/
+
+
+
+}
 var htmlEl = document.getElementsByTagName("html")[0];
 var liesMove = "100,65 100,100 65,100";
 var codeMove = "1,0.000001 100,0.000001 100,100 0.000001,100 0.000001,1";
+var options = {};
 document.addEventListener("DOMContentLoaded", function() {
-	//The first argument are the elements to which the plugin shall be initialized
-	//The second argument has to be at least a empty object or a object with your desired options
 	OverlayScrollbars(linksClass, options);
 });
 
