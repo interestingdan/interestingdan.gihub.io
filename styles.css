@@ -90,6 +90,11 @@ button.openDrawers {
 			var(--buttonWidth) / 2)));
 }
 
+#liesClicked:hover {
+	background-color: var(--liesBackGround);
+	color: var(--codeBackGround);
+}
+
 #codeHide {
 	top:
 		calc(var(--clickedShiftY) +
@@ -161,6 +166,11 @@ button.openDrawers {
 	);
 }
 
+#codeClicked:hover {
+	background-color: var(--codeBackGround);
+	color: var(--liesBackGround);
+}
+
 #liesHide {
 	top: calc(
 		calc(
@@ -182,8 +192,8 @@ button.openDrawers {
 
 button.closeDrawers {
 	position: fixed;
-	width: 3vw;
-	height: 3vw;
+	width: 6vw;
+	height: 6vw;
 	transition: opacity 1.2s;
 	visibility: hidden;
 	opacity: 0;
@@ -227,16 +237,15 @@ button.closeDrawers {
 	position: fixed;
 	right: 0%;
 	bottom:0%;
-	width:20vw;
-	height:20vw;
-	z-index: 4;
+	width:16vw;
+	height:16vw;
 	fill: var(--codeBackGround);
 }
 
 .topCorner {
 	position: fixed;
-	width:20vw;
-	height:20vw;
+	width:16vw;
+	height:16vw;
 	fill: var(--liesBackGround);
 }
 
@@ -259,27 +268,25 @@ button.closeDrawers {
 	width: 60%;
 	position: fixed;
 	opacity: 0;
-	visibility: hidden;
+	/*visibility: hidden;*/
 	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, opacity 0.5s;
+	z-index: -2;
 }
 
 .liesLinks {
 	color: var(--codeBackGround);
-	position: fixed;
-	/*left: 20%;
-	top: 20%;*/
 	left:calc(20% - var(--clickedShiftX));
 	top:calc(0% - var(--clickedShiftY));
 }
 
 .codeLinks {
 	color: var(--liesBackGround);
-	left:calc(50% + var(--clickedShiftX));
-	top: calc(50% + var(--clickedShiftY)); //fix this
+	left:calc(20% + var(--clickedShiftX));
+	top: calc(0% + var(--clickedShiftY));
 }
 
 #linksShow {
-	position: absolute;
+	position: fixed;
 	opacity: 1;
 	visibility: visible;
 	left: 20%;
@@ -369,8 +376,8 @@ button.closeDrawers {
 }
 
 .portImg {
-	width: 11vw;
-	height: 11vw;
+	width: 8vw;
+	height: 8vw;
 	border-radius: 50%;
 	margin-right: 4%
 }
