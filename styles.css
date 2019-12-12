@@ -7,15 +7,25 @@
 	--buttonOffsetX: 28%;
 	--clickedShiftY: 66%;
 	--clickedShiftX: 45%;
-	--linksLeftOffset: 20vw;
+	--linksLeftOffset: 20%;
+	--staticCornerVW: 14.08vw;
+	font-size: 26px;
 }
 
-
-@media (max-width: 1200px) {
+@media (max-width: 1680px) { /*1440*900*/
 	:root {
-	--linksLeftOffset: 10vw;
+	--linksLeftOffset: 22.1875%;
+	--staticCornerVW: 15.625vw;
 	}
 }
+
+@media (max-width: 1403px) { /*1366*768*/
+	:root {
+	--linksLeftOffset: 20%;
+	--staticCornerVW: 14.08vw;
+	}
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -34,8 +44,6 @@ a {
 a:hover {
 	text-decoration: underline;
 }
-
-
 
 button {
 	border-radius: 8em;
@@ -105,7 +113,21 @@ button.openDrawers {
 					)
 				)
 			);
-	background-color: none;
+	background-color: transparent;
+}
+
+.qguide {
+	height: px;
+	width: 81px;
+	background-color: green;
+	position: fixed;
+	top: calc(
+			var(--buttonOffset) - calc(
+				var(--buttonHeight) / 2) + 2.25vh);
+left: calc(
+					var(--buttonOffset) - calc(
+						var(--buttonWidth) / 2));
+	z-index: 4;
 }
 
 .codeButton {
@@ -175,14 +197,13 @@ button.openDrawers {
 				)
 		- var(--clickedShiftX)
 		);
-			background-color: none;
+	background-color: transparent;
 }
-
 
 button.closeDrawers {
 	position: fixed;
-	width: calc(var(--linksLeftOffset) * 0.25);
-	height: calc(var(--linksLeftOffset) * 0.25);
+	width: calc(var(--staticCornerVW) * 0.3);
+	height: calc(var(--staticCornerVW) * 0.3);
 	transition: opacity 1.2s;
 	visibility: hidden;
 	opacity: 0;
@@ -190,14 +211,14 @@ button.closeDrawers {
 
 .codeCloser {
 	background-color: var(--codeBackGround);
-	top: 1.5vw;
-	left: 1.5vw;
+	top: calc(var(--staticCornerVW) * 0.12);
+	left: calc(var(--staticCornerVW) * 0.12);
 }
 
 .liesCloser {
 	background-color: var(--liesBackGround);
-	right: 1.5vw;
-	bottom: 1.5vw;
+	right: calc(var(--staticCornerVW) * 0.12);
+	bottom: calc(var(--staticCornerVW) * 0.12);
 }
 
 #closerShow {
@@ -223,20 +244,20 @@ button.closeDrawers {
 	position: fixed;
 	right: 0%;
 	bottom:0%;
-	width:16vw;
-	height:16vw;
+	width:var(--staticCornerVW);
+	height:var(--staticCornerVW);
 	fill: var(--codeBackGround);
 }
 
 .topCorner {
 	position: fixed;
-	width:16vw;
-	height:16vw;
+	width:var(--staticCornerVW);
+	height:var(--staticCornerVW);
 	fill: var(--liesBackGround);
 }
 
 .linksClass {
-	width: 60%;
+	width: calc(100% - calc(2 * var(--linksLeftOffset)));
 	position: fixed;
 	opacity: 0;
 	/*visibility: hidden;*/
@@ -258,8 +279,8 @@ button.closeDrawers {
 
 #linksShow {
 	position: fixed;
-	opacity: 1;
 	visibility: visible;
+	opacity: 1;
 	left: var(--linksLeftOffset);
 	top: 0%;
 	/*top: calc(1.5 * var(--buttonHeight));*/
@@ -311,6 +332,7 @@ button.closeDrawers {
 }
 
 #codeFaderShow {
+
 	opacity: 1;
 	z-index: 3;
 	left: var(--linksLeftOffset);
@@ -333,15 +355,17 @@ button.closeDrawers {
 
 .portHeadText {
 	font-family: Quicksand, cursive;
-	font-size: 2.4vw;
+	/*font-size: 2.4vw;*/
+	font-size: : 1.33rem;
 	font-weight: 400;
 	line-height: 1.4em;
 }
 
 .portIntroText {
 	width: 80%;
-	font-size: 1.8vw;
+	/*font-size: 1.8vw;*/
 	font-weight: 300;
+	/*line-height: 1.6em;*/
 	line-height: 1.6em;
 	font-family: Lato, cursive;
 }
