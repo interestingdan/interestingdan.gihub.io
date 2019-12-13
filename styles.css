@@ -263,6 +263,9 @@ button.closeDrawers {
 	/*visibility: hidden;*/
 	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, opacity 0.5s;
 	z-index: -2;
+	display: grid;
+	grid-template-columns: 20% 80%;
+	grid-template-rows: 1fr 1fr;
 }
 
 .liesLinks {
@@ -332,24 +335,20 @@ button.closeDrawers {
 }
 
 #codeFaderShow {
-
 	opacity: 1;
 	z-index: 3;
 	left: var(--linksLeftOffset);
 	top: 0%;
 }
 
-.portItem {
+/*.portItem {
 	display: flex;
 	padding: 3%;
 	height: auto;
 	align-items: center;
-}
+}*/
 
 .portWords {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 	line-height: 1.6em;
 }
 
@@ -371,8 +370,7 @@ button.closeDrawers {
 }
 
 .portImg {
-	width: 8vw;
-	height: 8vw;
+	width: 100%;
 	border-radius: 50%;
 	margin-right: 4%
 }
