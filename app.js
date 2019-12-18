@@ -7,10 +7,10 @@ function setIds(idArr) {
 	};
 }
 
-var linksClass = document.getElementsByClassName("linksClass");
+var linksContainers = document.getElementsByClassName("linksContainer");
 var options = {};
 document.addEventListener("DOMContentLoaded", function() {
-	OverlayScrollbars(linksClass, options);
+	OverlayScrollbars(linksContainers, options);
 });
 
 
