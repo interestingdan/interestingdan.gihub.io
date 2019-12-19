@@ -12,19 +12,35 @@
 	font-size: 26px;
 }
 
-@media (max-width: 1680px) { /*1440*900*/
+@media (max-aspect-ratio : 1/1) {
+	:root {
+	--linksLeftOffset: 5%;
+	--staticCornerVW: 15.625vw;
+		--buttonWidth: 40%;
+	}
+}
+
+/*@media only screen and (max-width : 768px) {
+	:root {
+	--linksLeftOffset: 3%;
+	--staticCornerVW: 15.625vw;
+		--buttonWidth: 40%;
+	}
+}*/
+
+/*@media (max-width: 1680px) { 1440*900
 	:root {
 	--linksLeftOffset: 22.1875%;
 	--staticCornerVW: 15.625vw;
 	}
 }
 
-@media (max-width: 1403px) { /*1366*768*/
+@media (max-width: 1403px) { /*1366*768
 	:root {
 	--linksLeftOffset: 20%;
 	--staticCornerVW: 14.08vw;
 	}
-}
+}*/
 
 * {
   padding: 0;
@@ -185,11 +201,11 @@ left: calc(
 #liesHide {
 	top: calc(
 		calc(
-			var(--buttonOffset) - calc(
-				var(--buttonHeight) / 2)
-				)
-		- var(--clickedShiftY)
-		);
+			var(--buttonOffset) -
+			calc(var(--buttonHeight) / 2)
+			)
+			- var(--clickedShiftY)
+			);
 	left: calc(
 		calc(
 			var(--buttonOffset) - calc(
@@ -198,33 +214,6 @@ left: calc(
 		- var(--clickedShiftX)
 		);
 	background-color: transparent;
-}
-
-button.closeDrawers {
-	position: fixed;
-	width: calc(var(--staticCornerVW) * 0.3);
-	height: calc(var(--staticCornerVW) * 0.3);
-	transition: opacity 1.2s;
-	visibility: hidden;
-	opacity: 0;
-}
-
-.codeCloser {
-	background-color: var(--codeBackGround);
-	top: calc(var(--staticCornerVW) * 0.12);
-	left: calc(var(--staticCornerVW) * 0.12);
-}
-
-.liesCloser {
-	background-color: var(--liesBackGround);
-	right: calc(var(--staticCornerVW) * 0.12);
-	bottom: calc(var(--staticCornerVW) * 0.12);
-}
-
-#closerShow {
-	visibility: visible;
-	opacity: 1;
-	z-index: 10;
 }
 
 	button:focus {
@@ -236,8 +225,24 @@ button.closeDrawers {
 	height: 100%;
 	width: 100%;
 	fill=""
-	z-index: -1;
+	z-index: 1;
 	transition:transition: left 0.5s ease-in, top 0.5s ease-in,
+}
+
+
+
+.topCorner {
+	position: fixed;
+	width:var(--staticCornerVW);
+	height:var(--staticCornerVW);
+	fill: var(--liesBackGround);
+	z-index: 10;
+}
+
+.codeCloser {
+	background-color: var(--codeBackGround);
+	top: calc(var(--staticCornerVW) * 0.12);
+	left: calc(var(--staticCornerVW) * 0.12);
 }
 
 .bottomCorner {
@@ -247,21 +252,38 @@ button.closeDrawers {
 	width:var(--staticCornerVW);
 	height:var(--staticCornerVW);
 	fill: var(--codeBackGround);
+	z-index: 10;
 }
 
-.topCorner {
-	position: fixed;
-	width:var(--staticCornerVW);
-	height:var(--staticCornerVW);
-	fill: var(--liesBackGround);
+.liesCloser {
+	background-color: var(--liesBackGround);
+	right: calc(var(--staticCornerVW) * 0.12);
+	bottom: calc(var(--staticCornerVW) * 0.12);
 }
+
+.closeDrawers {
+	position: fixed;
+	width: calc(var(--staticCornerVW) * 0.3);
+	height: calc(var(--staticCornerVW) * 0.3);
+	transition: opacity 1.2s;
+	visibility: hidden;
+	opacity: 0;
+}
+
+#closerShow {
+	visibility: visible;
+	opacity: 1;
+	z-index: 10;
+}
+
+
 
 .linksContainer {
 	position: fixed;
 	width: calc(100% - calc(2 * var(--linksLeftOffset)));
 	opacity: 0;
 	z-index: -2;
-	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, opacity 0.5s;
+	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, width 0.5s ease-in, opacity 0.5s;
 }
 
 .linksClass {
@@ -276,7 +298,7 @@ button.closeDrawers {
 	display: grid;
 	grid-template-columns: 17.5% 77.5%;
 	grid-template-rows: repeat(auto-fill, auto);
-	grid-gap: 5% 5%;
+	grid-gap: 10% 5%;
 }
 
 .liesLinks {
@@ -293,7 +315,7 @@ button.closeDrawers {
 
 #linksShow {
 	position: fixed;
-	visibility: visible;
+	/*visibility: visible;*/
 	opacity: 1;
 	left: var(--linksLeftOffset);
 	top: 0%;
@@ -303,14 +325,15 @@ button.closeDrawers {
 	/*height: calc(100% - calc(1.5 * var(--buttonHeight)));*/
 }
 
-.linksSpacer {
-	/*height: var(--buttonHeight);*/
+/*.linksSpacer {
+	height: var(--buttonHeight);
 	height: calc(1.5 * var(--buttonHeight));
-}
+	height: calc(3 * var(--buttonHeight));
+}*/
 
 .fader {
 	position: fixed;
-	width: 60%;
+	width: 100%;
 	height: calc(1.5 * var(--buttonHeight));
 	z-index: -1;
 	opacity: 0;
