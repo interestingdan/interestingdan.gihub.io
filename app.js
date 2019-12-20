@@ -1,8 +1,11 @@
 const move = Array.from(document.getElementsByClassName('move'));
+
 var shrinkBackground = move[0];
 var growBackground = move[1];
+
 function setIds(idArr) {
-	for (i = 0; i < 12; i++) {
+	var j = idArr.length;
+	for (i = 0; i < j; i++) {
 		move[i].setAttribute("id",idArr[i]);
 	};
 }

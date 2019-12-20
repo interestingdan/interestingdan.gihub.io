@@ -8,15 +8,23 @@
 	--clickedShiftY: 66%;
 	--clickedShiftX: 45%;
 	--linksLeftOffset: 20%;
+	--staticCornerVW: 20vh;
+	--staticCornerButtonOffset: 2.25vh;
+	/*
+	--staticCornerButtonOffset: calc(var(--staticCornerVW) * 0.12);
 	--staticCornerVW: 14.08vw;
-	font-size: 26px;
+	*/
+	/*font-size: 2.8vh;*/
+	font-size: 4.25vh;
 }
 
 @media (max-aspect-ratio : 1/1) {
 	:root {
 	--linksLeftOffset: 5%;
-	--staticCornerVW: 15.625vw;
-		--buttonWidth: 40%;
+	/*--staticCornerVW: 15.625vw;*/
+	/*--staticCornerVW: 12vh;*/
+	--buttonWidth: 40%;
+	font-size: 2.8vh;
 	}
 }
 
@@ -28,14 +36,14 @@
 	}
 }*/
 
-/*@media (max-width: 1680px) { 1440*900
+/*@media (max-width: 1680px) { 1440*900, or 1.6/1
 	:root {
 	--linksLeftOffset: 22.1875%;
 	--staticCornerVW: 15.625vw;
 	}
 }
 
-@media (max-width: 1403px) { /*1366*768
+@media (max-width: 1403px) { /*1366*768 1.7/1
 	:root {
 	--linksLeftOffset: 20%;
 	--staticCornerVW: 14.08vw;
@@ -133,7 +141,7 @@ button.openDrawers {
 }
 
 .qguide {
-	height: px;
+	height: 81px;
 	width: 81px;
 	background-color: green;
 	position: fixed;
@@ -143,7 +151,7 @@ button.openDrawers {
 left: calc(
 					var(--buttonOffset) - calc(
 						var(--buttonWidth) / 2));
-	z-index: 4;
+	z-index: 5;
 }
 
 .codeButton {
@@ -182,13 +190,14 @@ left: calc(
 		)
 	- var(--clickedShiftY)
 	);
-	left: calc(
+	left:
+	calc(
 		calc(100% -
 			calc(
 				var(--buttonOffset) + calc(
 					var(--buttonWidth) / 2
-			)
 		)
+	)
 	- var(--clickedShiftX)	)
 	);
 	background-color: transparent;
@@ -243,8 +252,8 @@ left: calc(
 
 .codeCloser {
 	background-color: var(--codeBackGround);
-	top: calc(var(--staticCornerVW) * 0.12);
-	left: calc(var(--staticCornerVW) * 0.12);
+	top: var(--staticCornerButtonOffset);
+	left: var(--staticCornerButtonOffset);
 }
 
 .bottomCorner {
@@ -259,14 +268,14 @@ left: calc(
 
 .liesCloser {
 	background-color: var(--liesBackGround);
-	right: calc(var(--staticCornerVW) * 0.12);
-	bottom: calc(var(--staticCornerVW) * 0.12);
+	right: var(--staticCornerButtonOffset);
+	bottom: var(--staticCornerButtonOffset);
 }
 
 .closeDrawers {
 	position: fixed;
-	width: calc(var(--staticCornerVW) * 0.3);
-	height: calc(var(--staticCornerVW) * 0.3);
+	width: calc(var(--staticCornerVW) * 0.375);
+	height: calc(var(--staticCornerVW) * 0.375);
 	transition: opacity 1.2s;
 	visibility: hidden;
 	opacity: 0;
@@ -295,7 +304,7 @@ left: calc(
 .linksClass {
 	width: 100%;
 	height: 100%;
-	margin-top: 1rem;
+	margin-top: 2rem;
 	/*width: calc(100% - calc(2 * var(--linksLeftOffset)));*/
 	/*position: fixed;
 	opacity: 0;*/
@@ -305,7 +314,7 @@ left: calc(
 	display: grid;
 	grid-template-columns: 17.5% 77.5%;
 	grid-template-rows: repeat(auto-fill, auto);
-	grid-gap: 10% 5%;
+	grid-gap: 2.5rem 5%;
 }
 
 .liesLinks {
