@@ -2,7 +2,7 @@ const move = Array.from(document.getElementsByClassName('move'));
 var shrinkBackground = move[0];
 var growBackground = move[1];
 function setIds(idArr) {
-	for (i = 0; i < 10; i++) {
+	for (i = 0; i < 12; i++) {
 		move[i].setAttribute("id",idArr[i]);
 	};
 }
@@ -26,18 +26,19 @@ function lies(){
 		duration: 500,
 		easing: "ease-in",
 	});
-
 	var liesIds = [
 		null, //0 shrinkBackGround
 		null, //1 growBackground
 		"liesFaderShow", //2 liesFader
-		null,//3 codeFader
+		null, //3 codeFader
 		null, //4 codeCloser
-		"closerShow",//5 liesCloser
-		"liesClicked",//6liesButton
-		"codeHide",//7codeButton
-		"linksShow",//8 liesLinks
-		null//9 codeLinks
+		"closerShow", //5 liesCloser
+		"liesClicked", //6 liesButton
+		"codeHide", //7 codeButton
+		"linksShow", //8 liesLinks
+		null, //9 codeLinks
+		"cornerShow",//10 bottomCorner
+		null//11topCorner
 	];
 	setIds(liesIds);
 }
@@ -65,7 +66,9 @@ function code(){
 	"liesHide",//6liesButton
 	"codeClicked",//7codeButton
 	null,//8 liesLinks
-	"linksShow"//9 codeLinks
+	"linksShow",//9 codeLinks
+	null,//10 bottomCorner
+	"cornerShow"//11topCorner
 	];
 	setIds(codeIds);
 }
