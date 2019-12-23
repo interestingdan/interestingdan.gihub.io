@@ -23,8 +23,10 @@
 	--linksLeftOffset: 5%;
 	/*--staticCornerVW: 15.625vw;*/
 	/*--staticCornerVW: 12vh;*/
-	--buttonWidth: 40%;
+	/*--buttonWidth: 40%;*/
 	font-size: 2.8vh;
+	--clickedShiftX: 10%;
+	--buttonWidth: 38%;
 	}
 }
 
@@ -296,9 +298,8 @@ left: calc(
 .linksContainer {
 	position: fixed;
 	width: calc(100% - calc(2 * var(--linksLeftOffset)));
-	opacity: 0;
-	z-index: -2;
-	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, width 0.5s ease-in, opacity 0.5s;
+	/*z-index: -2;*/
+	transition: left 0.5s ease-in, top 0.5s ease-in, /*color 0.07s,*/ width 0.5s ease-in;
 }
 
 .linksClass {
@@ -314,7 +315,9 @@ left: calc(
 	display: grid;
 	grid-template-columns: 17.5% 77.5%;
 	grid-template-rows: repeat(auto-fill, auto);
-	grid-gap: 2.5rem 5%;
+	grid-gap: 2.5rem 4.5%;
+	opacity: 0;
+	transition: opacity 05s;
 }
 
 .liesLinks {
@@ -329,7 +332,7 @@ left: calc(
 	top: calc(0% + var(--clickedShiftY));
 }
 
-#linksShow {
+#linksContainerShow {
 	position: fixed;
 	/*visibility: visible;*/
 	opacity: 1;
@@ -341,6 +344,10 @@ left: calc(
 	/*height: calc(100% - calc(1.5 * var(--buttonHeight)));*/
 }
 
+
+#linksShow {
+	opacity: 1;
+}
 /*.linksSpacer {
 	height: var(--buttonHeight);
 	height: calc(1.5 * var(--buttonHeight));
@@ -398,6 +405,11 @@ left: calc(
 	align-items: center;
 }*/
 
+.portImg {
+	width: 100%;
+	border-radius: 50%;
+}
+
 .portWords {
 	line-height: 1.6rem;
 	font-weight: 300;
@@ -426,8 +438,3 @@ h1 {
 	line-height: 1.6em;
 	font-family: Lato, sans-serif;
 }*/
-
-.portImg {
-	width: 100%;
-	border-radius: 50%;
-}

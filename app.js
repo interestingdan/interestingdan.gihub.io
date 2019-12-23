@@ -1,7 +1,7 @@
 const move = Array.from(document.getElementsByClassName('move'));
 
 var shrinkBackground = move[0];
-var growBackground = move[1];
+/*var growBackground = move[1];*/
 
 function setIds(idArr) {
 	var j = idArr.length;
@@ -18,11 +18,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 function lies(){
-	Velocity(growBackground, {
+	/*Velocity(growBackground, {
 		points: ["100,100 100,100 100,100 100,100 100,100"]
 	},{
 		duration: 0
-	});
+	});*/
 	Velocity(shrinkBackground, {
 		points: /*[liesMove]*/["100,100 100,100 100,100"]
 	},{
@@ -38,10 +38,12 @@ function lies(){
 		"closerShow", //5 liesCloser
 		"liesClicked", //6 liesButton
 		"codeHide", //7 codeButton
-		"linksShow", //8 liesLinks
-		null, //9 codeLinks
-		"cornerShow",//10 bottomCorner
-		null//11topCorner
+		"linksContainerShow", //8 liesLinksContainer
+		"linksShow", //9 liesLinks
+		null, //10 codeLinksContainer
+		null, //11 codeLinks
+		"cornerShow", //12 bottomCorner
+		null //13 topCorner
 	];
 	setIds(liesIds);
 }
@@ -52,45 +54,48 @@ function code(){
 	},{
 		duration: 0
 	});
-	Velocity(growBackground, {
+/*	Velocity(growBackground, {
 		points: ["1,0.000001 100,0.000001 100,100 0.000001,100 0.000001,1"]
 
 	},{
 		duration: 500,
 		easing: "ease-in",
-	});
+	});*/
 	var codeIds = [
 	null, //0 shrinkBackGround
 	null, //1 growBackground
 	null, //2 liesFader
-	"codeFaderShow",//3 codeFader
+	"codeFaderShow", //3 codeFader
 	"closerShow", //4 codeCloser
-	null,//5 liesCloser
-	"liesHide",//6liesButton
-	"codeClicked",//7codeButton
-	null,//8 liesLinks
-	"linksShow",//9 codeLinks
-	null,//10 bottomCorner
-	"cornerShow"//11topCorner
+	null, //5 liesCloser
+	"liesHide", //6 liesButton
+	"codeClicked", //7 codeButton
+	null, //8 liesLinksContainer
+	null, //9 liesLinks
+	"linksContainerShow", //10 codeLinksContainer
+	"linksShow", //11 codeLinks
+	null, //12 bottomCorner
+	"cornerShow" //13 topCorner
 	];
 	setIds(codeIds);
 }
 
 function revert(){
-	for (i = 0; i < 10; i++) {
+	var j = move.length;
+	for (i = 0; i < j; i++) {
 		move[i].removeAttribute("id");
 		};
 
 	Velocity(shrinkBackground, {
-		points: ["100,0 100,100 0,100"]
+		points: ["100,0.0000001 100,100 0.0000001,100"]
 	},{
 		duration: 500,
 		easing: "ease-in",
 	});
-	Velocity(growBackground, {
+/*	Velocity(growBackground, {
 		points: ["100,0 100,0 100,100 0,100 0,100"]
 	},{
 		duration: 500,
 		easing: "ease-in",
-	});
+	});*/
 }
