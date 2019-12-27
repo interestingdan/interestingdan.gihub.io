@@ -1,7 +1,7 @@
 const move = Array.from(document.getElementsByClassName('move'));
 
-var shrinkBackground = move[0];
-/*var growBackground = move[1];*/
+/*var shrinkBackground = move[0];*/
+var growBackground = move[0];
 
 function setIds(idArr) {
 	var j = idArr.length;
@@ -18,17 +18,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 function lies(){
-	/*Velocity(growBackground, {
+	Velocity(growBackground, {
 		points: ["100,100 100,100 100,100 100,100 100,100"]
 	},{
-		duration: 0
-	});*/
-	Velocity(shrinkBackground, {
-		points: /*[liesMove]*/["100,100 100,100 100,100"]
+		duration: 500
+	});
+	/*Velocity(shrinkBackground, {
+		points: [liesMove]["100,100 100,100 100,100"]
 	},{
 		duration: 500,
 		easing: "ease-in",
-	});
+	});*/
 	var liesIds = [
 		null, //0 shrinkBackGround
 		null, //1 growBackground
@@ -49,18 +49,17 @@ function lies(){
 }
 
 function code(){
-	Velocity(shrinkBackground, {
+	/*Velocity(shrinkBackground, {
 		points: ["100,100 100,100 100,100"]
 	},{
 		duration: 0
-	});
-/*	Velocity(growBackground, {
+	});*/
+	Velocity(growBackground, {
 		points: ["1,0.000001 100,0.000001 100,100 0.000001,100 0.000001,1"]
-
 	},{
 		duration: 500,
 		easing: "ease-in",
-	});*/
+	});
 	var codeIds = [
 	null, //0 shrinkBackGround
 	null, //1 growBackground
@@ -86,16 +85,16 @@ function revert(){
 		move[i].removeAttribute("id");
 		};
 
-	Velocity(shrinkBackground, {
+	/*Velocity(shrinkBackground, {
 		points: ["100,0.0000001 100,100 0.0000001,100"]
 	},{
 		duration: 500,
 		easing: "ease-in",
-	});
-/*	Velocity(growBackground, {
+	});*/
+	Velocity(growBackground, {
 		points: ["100,0 100,0 100,100 0,100 0,100"]
 	},{
 		duration: 500,
 		easing: "ease-in",
-	});*/
+	});
 }
