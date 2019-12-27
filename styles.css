@@ -235,9 +235,8 @@ left: calc(
 	position: fixed;
 	height: 100%;
 	width: 100%;
-	fill=""
 	z-index: 1;
-	transition:transition: left 0.5s ease-in, top 0.5s ease-in,
+	/*transition:transition: left 0.5s ease-in, top 0.5s ease-in,*/
 }
 
 
@@ -299,7 +298,8 @@ left: calc(
 	position: fixed;
 	width: calc(100% - calc(2 * var(--linksLeftOffset)));
 	/*z-index: -2;*/
-	transition: left 0.5s ease-in, top 0.5s ease-in, /*color 0.07s,*/ width 0.5s ease-in;
+	opacity: 0;
+	transition: left 0.5s ease-in, top 0.5s ease-in, /*color 0.07s,*/ width 0.5s ease-in, opacity 0.5s;
 }
 
 .linksClass {
@@ -316,8 +316,8 @@ left: calc(
 	grid-template-columns: 17.5% 77.5%;
 	grid-template-rows: repeat(auto-fill, auto);
 	grid-gap: 2.5rem 4.5%;
-	opacity: 0;
-	transition: opacity 0.5s;
+	/*opacity: 0;
+	transition: opacity 0.5s;*/
 }
 
 .liesLinks {
@@ -345,9 +345,10 @@ left: calc(
 }
 
 
-#linksShow {
+/*#linksShow {
 	opacity: 1;
-}
+}*/
+
 /*.linksSpacer {
 	height: var(--buttonHeight);
 	height: calc(1.5 * var(--buttonHeight));
@@ -358,9 +359,9 @@ left: calc(
 	position: fixed;
 	width: 100%;
 	height: calc(1.5 * var(--buttonHeight));
-	z-index: -1;
+	z-index: 3;
 	opacity: 0;
-	transition: left 0.5s ease-in, top 0.5s ease-in;
+	transition: left 0.5s ease-in, top 0.5s ease-in, opacity 0.5s ease-in;
 }
 
 .liesFader {
