@@ -10,11 +10,18 @@ function setIds(idArr) {
 	};
 }
 
-var linksContainers = document.getElementsByClassName("linksContainer");
-var options = {};
+var liesLinks = document.getElementsByClassName("liesLinks");
+var liesOptions = {className: "os-theme-dark liesScroll"};
 document.addEventListener("DOMContentLoaded", function() {
-	OverlayScrollbars(linksContainers, options);
+	OverlayScrollbars(liesLinks, liesOptions);
 });
+
+var codeLinks = document.getElementsByClassName("codeLinks");
+var codeOptions = {className: "os-theme-light codeScroll"};
+document.addEventListener("DOMContentLoaded", function() {
+	OverlayScrollbars(codeLinks, codeOptions);
+});
+
 
 
 function lies(){
