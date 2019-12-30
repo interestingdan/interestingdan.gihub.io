@@ -228,7 +228,7 @@ left: calc(
 }
 
 	button:focus {
-	/*outline: none;*/
+	outline: none;
 }
 
 .shape {
@@ -472,7 +472,7 @@ h1 {
 .codeScroll > .os-scrollbar-vertical {
 	position: absolute !important;
 	left: 65% !important;
-	top: 16% !important;
+	top: 18% !important;
 	bottom: 8% !important;
 }
 
@@ -482,5 +482,5 @@ h1 {
 
 .codeScroll > .os-scrollbar-vertical {
 	position: absolute !important;
-	left: 1% !important;
+	left: 88% !important;
 }
