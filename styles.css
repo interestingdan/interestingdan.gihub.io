@@ -302,8 +302,8 @@ left: calc(
 	padding-left: var(--linksLeftOffset);
 	padding-right: var(--linksLeftOffset);
 	/*width: calc(100% - calc(2 * var(--linksLeftOffset)));*/
-	/*z-index: -2;*/
-	opacity: 0;
+	opacity: 1;
+	z-index: 2;
 	transition: left 0.5s ease-in, top 0.5s ease-in, /*color 0.07s,*/ width 0.5s ease-in, opacity 0.5s;
 }
 
@@ -321,8 +321,7 @@ left: calc(
 	grid-template-columns: 17.5% 77.5%;
 	grid-template-rows: repeat(auto-fill, auto);
 	grid-gap: 2.5rem 4.5%;
-	/*opacity: 0;
-	transition: opacity 0.5s;*/
+	visibility: hidden !important;
 }
 
 .liesLinks {
@@ -344,14 +343,15 @@ left: calc(
 	top: 0%;
 	opacity: 1;
 	/*top: calc(1.5 * var(--buttonHeight));*/
-	z-index: 2;
+	/*z-index: 2;*/
 	height: 100%;
 	/*height: calc(100% - calc(1.5 * var(--buttonHeight)));*/
 }
 
-/*#linksShow {
+#linksShow {
 	opacity: 1;
-}*/
+	visibility: visible !important;
+}
 
 /*.linksSpacer {
 	height: var(--buttonHeight);
