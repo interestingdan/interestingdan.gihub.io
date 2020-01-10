@@ -77,7 +77,11 @@ button {
 	z-index: 4;
 }
 
-button.openDrawers {
+button:focus {
+/*outline: none;*/
+}
+
+.openDrawers {
 	position: fixed;
 	width: var(--buttonWidth);
 	height: var(--buttonHeight);
@@ -102,7 +106,12 @@ button.openDrawers {
 	color: var(--liesBackGround);
 }
 
-#liesClicked {
+.liesButton:focus {
+	background-color: var(--codeBackGround);
+	color: var(--liesBackGround);
+}
+
+.liesButton.liesShow {
 	top: calc(var(--clickedShiftY) +
 		calc(
 		var(--buttonOffset) - calc(
@@ -114,35 +123,33 @@ button.openDrawers {
 	background-color: transparent;
 }
 
-#liesClicked:hover {
+.liesButton.liesShow:hover {
 	color: var(--codeBackGround);
 }
 
-#codeHide {
-	top:
-		calc(var(--clickedShiftY) +
-			calc(100% -
-				calc(
-					var(--buttonOffset) + calc(
-						var(--buttonHeight) / 2
-						)
-					)
-				)
+.liesButton.liesShow:focus {
+	color: var(--codeBackGround);
+}
+
+.liesButton.codeShow {
+	top: calc(
+		calc(
+			var(--buttonOffset) -
+			calc(var(--buttonHeight) / 2)
+			)
+			- var(--clickedShiftY)
 			);
-	left:
-		calc(var(--clickedShiftX) +
-			calc(100% -
-				calc(
-					var(--buttonOffset) + calc(
-						var(--buttonWidth) / 2
-						)
-					)
+	left: calc(
+		calc(
+			var(--buttonOffset) - calc(
+				var(--buttonWidth) / 2)
 				)
-			);
+		- var(--clickedShiftX)
+		);
 	background-color: transparent;
 }
 
-.qguide {
+/*.qguide {
 	height: 81px;
 	width: 81px;
 	background-color: green;
@@ -154,7 +161,7 @@ left: calc(
 					var(--buttonOffset) - calc(
 						var(--buttonWidth) / 2));
 	z-index: 5;
-}
+}*/
 
 .codeButton {
 	background-color: var(--codeBackGround);
@@ -176,12 +183,17 @@ left: calc(
 	);
 }
 
+.codeButton:focus {
+	color: var(--codeBackGround);
+	background-color: var(--liesBackGround);
+}
+
 .codeButton:hover {
 	color: var(--codeBackGround);
 	background-color: var(--liesBackGround);
 }
 
-#codeClicked {
+.codeButton.codeShow{
 	top: calc(
 		calc(100% -
 			calc(
@@ -205,33 +217,41 @@ left: calc(
 	background-color: transparent;
 }
 
-#codeClicked:hover {
-	color: var(--liesBackGround);
-}
-
-#liesHide {
-	top: calc(
-		calc(
-			var(--buttonOffset) -
-			calc(var(--buttonHeight) / 2)
-			)
-			- var(--clickedShiftY)
-			);
-	left: calc(
-		calc(
-			var(--buttonOffset) - calc(
-				var(--buttonWidth) / 2)
+.codeButton.liesShow {
+	top:
+		calc(var(--clickedShiftY) +
+			calc(100% -
+				calc(
+					var(--buttonOffset) + calc(
+						var(--buttonHeight) / 2
+						)
+					)
 				)
-		- var(--clickedShiftX)
-		);
+			);
+	left:
+		calc(var(--clickedShiftX) +
+			calc(100% -
+				calc(
+					var(--buttonOffset) + calc(
+						var(--buttonWidth) / 2
+						)
+					)
+				)
+			);
 	background-color: transparent;
 }
 
-	button:focus {
-	outline: none;
+.codeButton.codeShow:hover {
+	color: var(--liesBackGround);
 }
 
-.shape {
+.codeButton.codeShow:focus {
+	color: var(--liesBackGround);
+}
+
+
+
+#shapeContainer {
 	position: fixed;
 	height: 100%;
 	width: 100%;
@@ -241,7 +261,14 @@ left: calc(
 	background-color: var(--liesBackGround);
 }
 
-
+.closeDrawers {
+	position: fixed;
+	width: calc(var(--staticCornerVW) * 0.375);
+	height: calc(var(--staticCornerVW) * 0.375);
+	transition: opacity 1.2s;
+	visibility: hidden;
+	opacity: 0;
+}
 
 .topCorner {
 	position: fixed;
@@ -253,11 +280,23 @@ left: calc(
 	z-index: 1;
 }
 
+.topCorner.codeShow {
+	z-index: 3;
+}
+
 .codeCloser {
 	background-color: var(--codeBackGround);
 	top: var(--staticCornerButtonOffset);
 	left: var(--staticCornerButtonOffset);
 }
+
+.codeCloser.codeShow {
+	visibility: visible;
+	opacity: 1;
+	z-index: 4;
+}
+
+
 
 .bottomCorner {
 	position: fixed;
@@ -275,26 +314,15 @@ left: calc(
 	bottom: var(--staticCornerButtonOffset);
 }
 
-.closeDrawers {
-	position: fixed;
-	width: calc(var(--staticCornerVW) * 0.375);
-	height: calc(var(--staticCornerVW) * 0.375);
-	transition: opacity 1.2s;
-	visibility: hidden;
-	opacity: 0;
+.bottomCorner.liesShow {
+		z-index: 3;
 }
 
-#closerShow {
+.liesCloser.liesShow{
 	visibility: visible;
 	opacity: 1;
 	z-index: 4;
 }
-
-#cornerShow {
-	z-index: 3;
-}
-
-
 
 .linksContainer {
 	position: fixed;
@@ -304,7 +332,43 @@ left: calc(
 	/*width: calc(100% - calc(2 * var(--linksLeftOffset)));*/
 	opacity: 1;
 	z-index: 2;
-	transition: left 0.5s ease-in, top 0.5s ease-in, /*color 0.07s,*/ width 0.5s ease-in, opacity 0.5s;
+	transition: left 0.5s ease-in, top 0.5s ease-in, /*color 0.07s,*/ width 0.5s ease-in, opacity 0.5s ease-in;
+}
+
+.liesLinksContainer {
+	color: var(--codeBackGround);
+	left:calc(0% - var(--clickedShiftX));
+	top:calc(0% - var(--clickedShiftY));
+}
+
+.codeLinksContainer {
+	color: var(--liesBackGround);
+	left:calc(0% + var(--clickedShiftX));
+	top: calc(0% + var(--clickedShiftY));
+}
+
+.liesLinksContainer.liesShow {
+	position: fixed;
+	/*visibility: visible;*/
+	left: 0%;
+	top: 0%;
+	opacity: 1;
+	/*top: calc(1.5 * var(--buttonHeight));*/
+	/*z-index: 2;*/
+	height: 100%;
+	/*height: calc(100% - calc(1.5 * var(--buttonHeight)));*/
+}
+
+.codeLinksContainer.codeShow {
+	position: fixed;
+	/*visibility: visible;*/
+	left: 0%;
+	top: 0%;
+	opacity: 1;
+	/*top: calc(1.5 * var(--buttonHeight));*/
+	/*z-index: 2;*/
+	height: 100%;
+	/*height: calc(100% - calc(1.5 * var(--buttonHeight)));*/
 }
 
 .linksClass {
@@ -321,35 +385,24 @@ left: calc(
 	grid-template-columns: 17.5% 77.5%;
 	grid-template-rows: repeat(auto-fill, auto);
 	grid-gap: 2.5rem 4.5%;
+	opacity: 0;
+	transition: opacity 0.5s ease-in;
 	visibility: hidden !important;
 }
 
-.liesLinks {
-	color: var(--codeBackGround);
-	left:calc(0% - var(--clickedShiftX));
-	top:calc(0% - var(--clickedShiftY));
-}
-
-.codeLinks {
-	color: var(--liesBackGround);
-	left:calc(0% + var(--clickedShiftX));
-	top: var(--clickedShiftY);
-}
-
-#linksContainerShow {
-	position: fixed;
-	/*visibility: visible;*/
-	left: 0%;
-	top: 0%;
+.liesLinks.liesShow {
 	opacity: 1;
-	/*top: calc(1.5 * var(--buttonHeight));*/
-	/*z-index: 2;*/
-	height: 100%;
-	/*height: calc(100% - calc(1.5 * var(--buttonHeight)));*/
 }
 
-#linksShow {
+.codeLinks.codeShow {
 	opacity: 1;
+}
+
+.liesLinks.visible {
+	visibility: visible !important;
+}
+
+.codeLinks.visible {
 	visibility: visible !important;
 }
 
@@ -389,14 +442,14 @@ left: calc(
 
 }
 
-#liesFaderShow {
+.liesFader.liesShow {
 	opacity: 1;
 	z-index: 3;
 	left: var(--linksLeftOffset);
 	top: calc(100% - calc(1.5 *var(--buttonHeight)));
 }
 
-#codeFaderShow {
+.codeFaderShow.codeFader {
 	opacity: 1;
 	z-index: 3;
 	left: var(--linksLeftOffset);
@@ -428,21 +481,6 @@ h1 {
 	line-height: 1.6em;
 	text-align: center;
 }
-
-/*.portHeadText {
-	font-family: Quicksand, sans-serif;
-	font-size: 2.4vw;
-	font-size: : 1.33rem;
-	font-weight: 400;
-	line-height: 1.4em;
-}*/
-
-/*.portIntroText {
-	font-size: 1.8vw;
-	font-weight: 300;
-	line-height: 1.6em;
-	font-family: Lato, sans-serif;
-}*/
 
 .liesScroll > .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle {
 	width: 13px !important;
