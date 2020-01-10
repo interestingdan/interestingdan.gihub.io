@@ -1,22 +1,29 @@
 const move = Array.from(document.getElementsByClassName('move'));
 
-/*var shrinkBackground = move[0];*/
-var growBackground = move[0];
+var shape = move[0];
+//var shape = document.getElementById('shape')[0];
 
-function setIds(idArr) {
+/*function setIds(idArr) {
 	var j = idArr.length;
 	for (i = 0; i < j; i++) {
 		move[i].setAttribute("id",idArr[i]);
 	};
+}*/
+
+function addClass(classToAdd) {
+	var j = move.length;
+	for (i = 0; i < j; i++) {
+		move[i].classList.add(classToAdd);
+	};
 }
 
-var liesLinks = document.getElementsByClassName("liesLinks");
+var liesLinks = document.getElementsByClassName("liesLinksContainer");
 var liesOptions = {className: "os-theme-dark liesScroll"};
 document.addEventListener("DOMContentLoaded", function() {
 	OverlayScrollbars(liesLinks, liesOptions);
 });
 
-var codeLinks = document.getElementsByClassName("codeLinks");
+var codeLinks = document.getElementsByClassName("codeLinksContainer");
 var codeOptions = {className: "os-theme-light codeScroll"};
 document.addEventListener("DOMContentLoaded", function() {
 	OverlayScrollbars(codeLinks, codeOptions);
@@ -25,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 function lies(){
-	Velocity(growBackground, {
+	Velocity(shape, {
 		points: ["100,100 100,100 100,100 100,100 100,100"]
 	},{
 		duration: 500
@@ -36,7 +43,7 @@ function lies(){
 		duration: 500,
 		easing: "ease-in",
 	});*/
-	var liesIds = [
+	/*var liesIds = [
 		null, //0 shrinkBackGround
 		null, //1 growBackground
 		"liesFaderShow", //2 liesFader
@@ -52,7 +59,9 @@ function lies(){
 		"cornerShow", //12 bottomCorner
 		null //13 topCorner
 	];
-	setIds(liesIds);
+	setIds(liesIds);*/
+	addClass('liesShow');
+
 }
 
 function code(){
@@ -61,13 +70,13 @@ function code(){
 	},{
 		duration: 0
 	});*/
-	Velocity(growBackground, {
+	Velocity(shape, {
 		points: ["1,0.000001 100,0.000001 100,100 0.000001,100 0.000001,1"]
 	},{
 		duration: 500,
 		easing: "ease-in",
 	});
-	var codeIds = [
+	/*var codeIds = [
 	null, //0 shrinkBackGround
 	null, //1 growBackground
 	null, //2 liesFader
@@ -84,12 +93,15 @@ function code(){
 	"cornerShow" //13 topCorner
 	];
 	setIds(codeIds);
+	*/
+	addClass('codeShow');
 }
 
 function revert(){
 	var j = move.length;
 	for (i = 0; i < j; i++) {
-		move[i].removeAttribute("id");
+		move[i].classList.remove('liesShow');
+		move[i].classList.remove('codeShow');
 		};
 
 	/*Velocity(shrinkBackground, {
@@ -98,7 +110,7 @@ function revert(){
 		duration: 500,
 		easing: "ease-in",
 	});*/
-	Velocity(growBackground, {
+	Velocity(shape, {
 		points: ["100,0 100,0 100,100 0,100 0,100"]
 	},{
 		duration: 500,

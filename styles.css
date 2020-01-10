@@ -77,7 +77,11 @@ button {
 	z-index: 4;
 }
 
-button.openDrawers {
+button:focus {
+outline: none;
+}
+
+.openDrawers {
 	position: fixed;
 	width: var(--buttonWidth);
 	height: var(--buttonHeight);
@@ -102,7 +106,7 @@ button.openDrawers {
 	color: var(--liesBackGround);
 }
 
-#liesClicked {
+.liesButton.liesShow {
 	top: calc(var(--clickedShiftY) +
 		calc(
 		var(--buttonOffset) - calc(
@@ -114,35 +118,29 @@ button.openDrawers {
 	background-color: transparent;
 }
 
-#liesClicked:hover {
+.liesClicked.liesShow:hover {
 	color: var(--codeBackGround);
 }
 
-#codeHide {
-	top:
-		calc(var(--clickedShiftY) +
-			calc(100% -
-				calc(
-					var(--buttonOffset) + calc(
-						var(--buttonHeight) / 2
-						)
-					)
-				)
+.liesButton.codeShow {
+	top: calc(
+		calc(
+			var(--buttonOffset) -
+			calc(var(--buttonHeight) / 2)
+			)
+			- var(--clickedShiftY)
 			);
-	left:
-		calc(var(--clickedShiftX) +
-			calc(100% -
-				calc(
-					var(--buttonOffset) + calc(
-						var(--buttonWidth) / 2
-						)
-					)
+	left: calc(
+		calc(
+			var(--buttonOffset) - calc(
+				var(--buttonWidth) / 2)
 				)
-			);
+		- var(--clickedShiftX)
+		);
 	background-color: transparent;
 }
 
-.qguide {
+/*.qguide {
 	height: 81px;
 	width: 81px;
 	background-color: green;
@@ -154,7 +152,7 @@ left: calc(
 					var(--buttonOffset) - calc(
 						var(--buttonWidth) / 2));
 	z-index: 5;
-}
+}*/
 
 .codeButton {
 	background-color: var(--codeBackGround);
@@ -181,7 +179,7 @@ left: calc(
 	background-color: var(--liesBackGround);
 }
 
-#codeClicked {
+.codeButton.codeShow{
 	top: calc(
 		calc(100% -
 			calc(
@@ -205,33 +203,37 @@ left: calc(
 	background-color: transparent;
 }
 
-#codeClicked:hover {
-	color: var(--liesBackGround);
-}
-
-#liesHide {
-	top: calc(
-		calc(
-			var(--buttonOffset) -
-			calc(var(--buttonHeight) / 2)
-			)
-			- var(--clickedShiftY)
-			);
-	left: calc(
-		calc(
-			var(--buttonOffset) - calc(
-				var(--buttonWidth) / 2)
+.codeButton.liesShow {
+	top:
+		calc(var(--clickedShiftY) +
+			calc(100% -
+				calc(
+					var(--buttonOffset) + calc(
+						var(--buttonHeight) / 2
+						)
+					)
 				)
-		- var(--clickedShiftX)
-		);
+			);
+	left:
+		calc(var(--clickedShiftX) +
+			calc(100% -
+				calc(
+					var(--buttonOffset) + calc(
+						var(--buttonWidth) / 2
+						)
+					)
+				)
+			);
 	background-color: transparent;
 }
 
-	button:focus {
-	outline: none;
+.codeButton.codeShow:hover {
+	color: var(--liesBackGround);
 }
 
-.shape {
+
+
+#shape {
 	position: fixed;
 	height: 100%;
 	width: 100%;
@@ -241,7 +243,14 @@ left: calc(
 	background-color: var(--liesBackGround);
 }
 
-
+.closeDrawers {
+	position: fixed;
+	width: calc(var(--staticCornerVW) * 0.375);
+	height: calc(var(--staticCornerVW) * 0.375);
+	transition: opacity 1.2s;
+	visibility: hidden;
+	opacity: 0;
+}
 
 .topCorner {
 	position: fixed;
@@ -253,11 +262,23 @@ left: calc(
 	z-index: 1;
 }
 
+.topCorner.codeShow {
+	z-index: 3;
+}
+
 .codeCloser {
 	background-color: var(--codeBackGround);
 	top: var(--staticCornerButtonOffset);
 	left: var(--staticCornerButtonOffset);
 }
+
+.codeCloser.codeShow {
+	visibility: visible;
+	opacity: 1;
+	z-index: 4;
+}
+
+
 
 .bottomCorner {
 	position: fixed;
@@ -275,31 +296,20 @@ left: calc(
 	bottom: var(--staticCornerButtonOffset);
 }
 
-.closeDrawers {
-	position: fixed;
-	width: calc(var(--staticCornerVW) * 0.375);
-	height: calc(var(--staticCornerVW) * 0.375);
-	transition: opacity 1.2s;
-	visibility: hidden;
-	opacity: 0;
+.bottomCorner.liesShow {
+		z-index: 3;
 }
 
-#closerShow {
+.liesCloser.liesShow{
 	visibility: visible;
 	opacity: 1;
 	z-index: 4;
 }
 
-#cornerShow {
-	z-index: 3;
-}
-
-
-
 .linksContainer {
 	position: fixed;
 	width: 100%;
-	padding-left: var(--linksLeftOffset);
+	/*padding-left: var(--linksLeftOffset);
 	padding-right: var(--linksLeftOffset);
 	/*width: calc(100% - calc(2 * var(--linksLeftOffset)));*/
 	opacity: 1;
@@ -336,7 +346,7 @@ left: calc(
 	top: var(--clickedShiftY);
 }
 
-#linksContainerShow {
+.liesLinksContainerShow.liesShow {
 	position: fixed;
 	/*visibility: visible;*/
 	left: 0%;
@@ -348,7 +358,24 @@ left: calc(
 	/*height: calc(100% - calc(1.5 * var(--buttonHeight)));*/
 }
 
-#linksShow {
+.codeLinksContainerShow.codeShow {
+	position: fixed;
+	/*visibility: visible;*/
+	left: 0%;
+	top: 0%;
+	opacity: 1;
+	/*top: calc(1.5 * var(--buttonHeight));*/
+	/*z-index: 2;*/
+	height: 100%;
+	/*height: calc(100% - calc(1.5 * var(--buttonHeight)));*/
+}
+
+.liesLinks.liesShow {
+	opacity: 1;
+	visibility: visible !important;
+}
+
+.codeLinks.codeShow {
 	opacity: 1;
 	visibility: visible !important;
 }
