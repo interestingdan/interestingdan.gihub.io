@@ -10,47 +10,17 @@
 	--linksLeftOffset: 20%;
 	--staticCornerVW: 20vh;
 	--staticCornerButtonOffset: 2.25vh;
-	/*
-	--staticCornerButtonOffset: calc(var(--staticCornerVW) * 0.12);
-	--staticCornerVW: 14.08vw;
-	*/
-	/*font-size: 2.8vh;*/
 	font-size: 4.25vh;
 }
 
 @media (max-aspect-ratio : 1/1) {
 	:root {
 	--linksLeftOffset: 5%;
-	/*--staticCornerVW: 15.625vw;*/
-	/*--staticCornerVW: 12vh;*/
-	/*--buttonWidth: 40%;*/
 	font-size: 2.8vh;
 	--clickedShiftX: 10%;
 	--buttonWidth: 38%;
 	}
 }
-
-/*@media only screen and (max-width : 768px) {
-	:root {
-	--linksLeftOffset: 3%;
-	--staticCornerVW: 15.625vw;
-		--buttonWidth: 40%;
-	}
-}*/
-
-/*@media (max-width: 1680px) { 1440*900, or 1.6/1
-	:root {
-	--linksLeftOffset: 22.1875%;
-	--staticCornerVW: 15.625vw;
-	}
-}
-
-@media (max-width: 1403px) { /*1366*768 1.7/1
-	:root {
-	--linksLeftOffset: 20%;
-	--staticCornerVW: 14.08vw;
-	}
-}*/
 
 * {
   padding: 0;
@@ -78,7 +48,7 @@ button {
 }
 
 button:focus {
-/*outline: none;*/
+outline: none;
 }
 
 .openDrawers {
@@ -148,20 +118,6 @@ button:focus {
 		);
 	background-color: transparent;
 }
-
-/*.qguide {
-	height: 81px;
-	width: 81px;
-	background-color: green;
-	position: fixed;
-	top: calc(
-			var(--buttonOffset) - calc(
-				var(--buttonHeight) / 2) + 2.25vh);
-left: calc(
-					var(--buttonOffset) - calc(
-						var(--buttonWidth) / 2));
-	z-index: 5;
-}*/
 
 .codeButton {
 	background-color: var(--codeBackGround);
@@ -256,7 +212,6 @@ left: calc(
 	height: 100%;
 	width: 100%;
 	z-index: 1;
-	/*transition:transition: left 0.5s ease-in, top 0.5s ease-in,*/
 	color: var(--codeBackGround);
 	background-color: var(--liesBackGround);
 }
@@ -329,10 +284,9 @@ left: calc(
 	width: 100%;
 	padding-left: var(--linksLeftOffset);
 	padding-right: var(--linksLeftOffset);
-	/*width: calc(100% - calc(2 * var(--linksLeftOffset)));*/
 	opacity: 1;
 	z-index: 2;
-	transition: left 0.5s ease-in, top 0.5s ease-in, /*color 0.07s,*/ width 0.5s ease-in, opacity 0.5s ease-in;
+	transition: left 0.5s ease-in, top 0.5s ease-in, width 0.5s ease-in, opacity 0.5s ease-in;
 }
 
 .liesLinksContainer {
@@ -349,14 +303,10 @@ left: calc(
 
 .liesLinksContainer.liesShow {
 	position: fixed;
-	/*visibility: visible;*/
 	left: 0%;
 	top: 0%;
 	opacity: 1;
-	/*top: calc(1.5 * var(--buttonHeight));*/
-	/*z-index: 2;*/
 	height: 100%;
-	/*height: calc(100% - calc(1.5 * var(--buttonHeight)));*/
 }
 
 .codeLinksContainer.codeShow {
@@ -365,22 +315,13 @@ left: calc(
 	left: 0%;
 	top: 0%;
 	opacity: 1;
-	/*top: calc(1.5 * var(--buttonHeight));*/
-	/*z-index: 2;*/
 	height: 100%;
-	/*height: calc(100% - calc(1.5 * var(--buttonHeight)));*/
 }
 
 .linksClass {
 	height: 100%;
 	margin-top: 2rem;
 	width: calc(100% - calc(2 * var(--linksLeftOffset)));
-	/*width: calc(100% - calc(2 * var(--linksLeftOffset)));*/
-	/*position: fixed;
-	opacity: 0;*/
-	/*visibility: hidden;*/
-	/*transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, opacity 0.5s;*/
-	/*z-index: -2;*/
 	display: grid;
 	grid-template-columns: 17.5% 77.5%;
 	grid-template-rows: repeat(auto-fill, auto);
@@ -405,12 +346,6 @@ left: calc(
 .codeLinks.visible {
 	visibility: visible !important;
 }
-
-/*.linksSpacer {
-	height: var(--buttonHeight);
-	height: calc(1.5 * var(--buttonHeight));
-	height: calc(3 * var(--buttonHeight));
-}*/
 
 .fader {
 	position: fixed;
@@ -455,13 +390,6 @@ left: calc(
 	left: var(--linksLeftOffset);
 	top: 0%;
 }
-
-/*.portItem {
-	display: flex;
-	padding: 3%;
-	height: auto;
-	align-items: center;
-}*/
 
 .portImg {
 	width: 100%;

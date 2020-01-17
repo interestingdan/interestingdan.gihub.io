@@ -4,8 +4,13 @@
 		<title>
 			Aaron J Matthews
 		</title>
-
-
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
 		<link href="https://fonts.googleapis.com/css?family=Geo|Romanesco|Lato:300|Quicksand:400" rel="stylesheet">
 		<link type="text/css" href="node_modules/overlayscrollbars/css/OverlayScrollbars.css" rel="stylesheet"/>
 		<script type="text/javascript" src="node_modules/overlayscrollbars/js/OverlayScrollbars.js"></script>
@@ -13,27 +18,8 @@
 	</head>
 	<body>
 	<svg id="shapeContainer" width='100%' height='100%' viewbox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-		<!--<polygon class="shrinkBackground move" points="100,0 100,100 0,100" fill="var(--codeBackGround)"></polygon>-->
 		<polygon id="shape" points="100,0 100,0 100,100 0,100 0,100" fill="var(--codeBackGround)"></polygon>
 	</svg>
-	<div class="move"></div>
-
-	<!--<div class="qguide"></div>-->
-	<!--preserveAspectRatio="xMidYMid slice"-->
-	<!--<svg id="guides"
-		width='100%' height='100%' viewBox="0 0 100 100"  preserveAspectRatio="none" style="
-		z-index: 2;
-		position: fixed;
-		height: 100%;
-		width: 100%;
-		stroke:green;
-		stroke-width: 0.3;">
-		<line x1="0" y1="0" x2="100" y2="100"></line>
-		<line x1="0" y1="50" x2="100" y2="50"></line>
-		<line x1="100" y1="0" x2="0" y2="100"></line>
-	</svg>-->
-
-
 	<button tabindex="0" class="openDrawers liesButton move" onclick="lies()">
 		Lies
 	</button>
@@ -124,11 +110,6 @@
 	</svg>
 	<button class="closeDrawers codeCloser move" onclick="revert()" tabindex="0"></button>
 	<button class="closeDrawers liesCloser move" onclick="revert()" tabindex="0"></button>
-		<!--<polygon class="codeShapePoly" points="75,0 100,0 100,100 25,100"
-		</svg>
-		<svg id="liesShape" width='100%' height='100%' viewBox="0 0 100 100" preserveAspectRatio="none">
-			<polygon points="0,0 75,0 0,25 0,100" fill="var(--liesBackGround)"/>
-		</svg>-->
 	<script src="node_modules/velocity-animate/velocity.min.js"></script>
 	<script src="app.js"></script>
 	</body>
