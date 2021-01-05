@@ -11,15 +11,58 @@
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 		<meta name="msapplication-TileColor" content="#da532c">
 		<meta name="theme-color" content="#ffffff">
-		<link href="https://fonts.googleapis.com/css?family=Geo|Romanesco|Lato:300|Quicksand:400" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Geo|Lato:300|Quicksand:400" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
 		<link type="text/css" href="node_modules/overlayscrollbars/css/OverlayScrollbars.css" rel="stylesheet"/>
 		<script type="text/javascript" src="node_modules/overlayscrollbars/js/OverlayScrollbars.js"></script>
 		<link rel="stylesheet" Type="text/css" href="styles.css">
+		<!--cachebuster begins-->
+		<meta http-equiv=“Pragma” content=”no-cache”>
+		<meta http-equiv=“Expires” content=”-1″>
+		<meta http-equiv=“CACHE-CONTROL” content=”NO-CACHE”>
+		<!--cachebuster ends-->
 	</head>
 	<body>
-	<svg id="shapeContainer" width='100%' height='100%' viewbox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-		<polygon id="shape" points="100,0 100,0 100,100 0,100 0,100" fill="var(--codeBackGround)"></polygon>
+	<svg>
+		<defs>
+			<symbol id="icon-cross" viewBox="-20 -20 72 72" preserveAspectRatio="xMidYMid slice">
+				<path d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z">
+				</path>
+			</symbol>
+			<!--<polygon id="shape" points="100,0 100,0 100,100 0,100 0,100"></polygon>-->
+		</defs>
 	</svg>
+	<div id="shapecontainercontainer">
+		<svg id="shapeContainer"  viewbox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+		<polygon id="shape" points="100,0 100,0 100,100 0,100 0,100"></polygon>
+		<!--<defs>
+			<linearGradient id="codeBackGroundGradient" x1="100%" y1="100%" x2="0%" y2="0%">
+				<stop class="stop1" offset="0%" stop-color="rgba(0,0,0,1)" />
+        <stop class="stop2" offset="50%" stop-color="rgba(10,10,10,1)" />
+        <stop class="stop3" offset="100%" stop-color="rgba(20,20,20,1)" />
+			</linearGradient>
+		</defs>-->
+		<!--<polygon class="shrinkBackground move" points="100,0 100,100 0,100" fill="var(--codeBackGround)"></polygon>-->
+		<!--<use xlink:href="#shape"></use>-->
+		</svg>
+	</div>
+	<!--<div class="move"></div>-->
+
+	<!--<div class="qguide"></div>-->
+	<!--preserveAspectRatio="xMidYMid slice"-->
+	<!--<svg id="guides"
+		width='100%' height='100%' viewBox="0 0 100 100"  preserveAspectRatio="none" style="
+		z-index: 2;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		stroke:green;
+		stroke-width: 0.3;">
+		<line x1="0" y1="0" x2="100" y2="100"></line>
+		<line x1="0" y1="50" x2="100" y2="50"></line>
+		<line x1="100" y1="0" x2="0" y2="100"></line>
+	</svg>-->
+
 	<button tabindex="0" class="openDrawers liesButton move" onclick="lies()">
 		Lies
 	</button>
@@ -28,76 +71,46 @@
 	</button>
 	<div class="linksContainer liesLinksContainer move">
 		<div class="linksClass liesLinks move delay">
-			<img class="portImg" src="Beta_Commando_Square_Cover_906.jpg" alt="Cover Image for Beta Commando">
+			<img class="portImg" src="Beta_Commando_Square_Cover_906.jpg" alt="Cover Image for Beta Commando. A pixellated character runs down a hallway, towards the setting sun.">
 			<div class="portWords">
 				<h1><a href="https://www.amazon.com.au/Beta-Commando-Aaron-Matthews-ebook/dp/B00DR2UBF2">Beta Commando</a></h1>
-				A pulp novella about ultraviolence and friendship
+				<i>Novella.</i><br> It's 1999. James and his friends just want to drink a few beers, maybe talk to some girls, and play their favourite shooter on home-made augmented reality goggles. They didn't mean to mess with ancient magic. They didn't mean to summon a mute space marine with Schwarzenegger's tact and Stallone's fashion sense.
+				<br>
+				<br>
+				But they did.
 			</div>
-			<img class="portImg" src="testimg.jpg" alt="funny">
+			<img class="portImg" src="bodies_pic_square.jpg" alt="Greyscale desert sky with cacti and moon.">
+			<div class="portWords">
+				<h1><a href="https://medium.com/@aaronjmatthews/bodies-in-motion-fd479eaecc8d">Bodies in Motion</a></h1>
+				<i>Short fiction.</i><br> Chrissy runs a joint that's mostly a bowling alley. Dayle likes Mills and Boon, and collecting souls. Singhe has been hunting devils too long. They won't all be leaving Brandon, Texas.
+			</div>
+			<div class="spacer">
+			</div>
+			<!--<img class="portImg" src="testimg.jpg" alt="funny">
 			<div class="portWords">
 				<h1><a href="null">A Very Cool and Interesting Product</a></h1>
 				This is one of the many cool and interesting things I have worked on. I did very good work on it because I am such a smart lad (everyone thinks this).
-			</div>
-			<img class="portImg" src="testimg.jpg" alt="funny">
-			<div class="portWords">
-				<h1><a href="null">A Very Cool and Interesting Product</a></h1>
-				This is one of the many cool and interesting things I have worked on. I did very good work on it because I am such a smart lad (everyone thinks this).
-			</div>
-			<img class="portImg" src="testimg.jpg" alt="funny">
-			<div class="portWords">
-				<h1><a href="null">A Very Cool and Interesting Product</a></h1>
-				This is one of the many cool and interesting things I have worked on. I did very good work on it because I am such a smart lad (everyone thinks this).
-			</div>
-			<img class="portImg" src="testimg.jpg" alt="funny">
-			<div class="portWords">
-				<h1><a href="null">A Very Cool and Interesting Product</a></h1>
-				This is one of the many cool and interesting things I have worked on. I did very good work on it because I am such a smart lad (everyone thinks this).
-			</div>
-			<img class="portImg" src="testimg.jpg" alt="funny">
-			<div class="portWords">
-				<h1><a href="null">A Very Cool and Interesting Product</a></h1>
-				This is one of the many cool and interesting things I have worked on. I did very good work on it because I am such a smart lad (everyone thinks this).
-			</div>
-			<div class="linksSpacer"><br><br>
+			</div>-->
 			</div>
 		</div>
 	</div>
 	<div class="linksContainer codeLinksContainer move">
 		<div class="linksClass codeLinks move delay">
-			<div class="linksSpacer"><br>
+			<!--<div class="linksSpacer"><br>
 			</div>
 			<div class="linksSpacer"><br>
-			</div>
-			<img class="portImg" src="Beta_Commando_Square_Cover_906.jpg" alt="Cover Image for Beta Commando">
+			</div>-->
+			<img class="portImg" src="homepage_screenshot.png" alt="Screenshot of this website">
 			<div class="portWords">
-				<h1><a href="https://www.amazon.com.au/Beta-Commando-Aaron-Matthews-ebook/dp/B00DR2UBF2" tabindex="-1">Beta Commando</a></h1>
-				A pulp novella about ultraviolence and friendship
+				<h1><a href="aaronjmatthe.ws" tabindex="-1">This Page</a></h1>
+				<i>Static portfolio website</i><br>
+				The portfolio you're reading. HTML, CSS and Javascript, with a dash of Velocity and OverlayScrollbars.
 			</div>
-			<img class="portImg" src="testimg.jpg" alt="funny">
-			<div class="portWords">
-				<h1><a href="null">A Very Cool and Interesting Product</a></h1>
-				This is one of the many cool and interesting things I have worked on. I did very good work on it because I am such a smart lad (everyone thinks this).
-			</div>
-			<img class="portImg" src="testimg.jpg" alt="funny">
+			<!--<img class="portImg" src="testimg.jpg" alt="funny">
 			<div class="portWords">
 				<h1><a href="null">A Very Cool and Interesting Product</a></h1>
 				This is one of the many cool and interesting things I have worked on. I did very good work on it because I am such a smart lad (everyone thinks this).
-			</div>
-			<img class="portImg" src="testimg.jpg" alt="funny">
-			<div class="portWords">
-				<h1><a href="null">A Very Cool and Interesting Product</a></h1>
-				This is one of the many cool and interesting things I have worked on. I did very good work on it because I am such a smart lad (everyone thinks this).
-			</div>
-			<img class="portImg" src="testimg.jpg" alt="funny">
-			<div class="portWords">
-				<h1><a href="null">A Very Cool and Interesting Product</a></h1>
-				This is one of the many cool and interesting things I have worked on. I did very good work on it because I am such a smart lad (everyone thinks this).
-			</div>
-			<img class="portImg" src="testimg.jpg" alt="funny">
-			<div class="portWords">
-				<h1><a href="null">A Very Cool and Interesting Product</a></h1>
-				This is one of the many cool and interesting things I have worked on. I did very good work on it because I am such a smart lad (everyone thinks this).
-			</div>
+			</div>-->
 		</div>
 	</div>
 	<div class="fader liesFader move"></div>
@@ -108,8 +121,21 @@
 	<svg class="topCorner move" width="10vw" height="10vw" viewbox="0 0 100 100" preserveAspectRatio="none" fill="var(--liesBackGround)">
 		<polygon points="0,0 100,0 0,100"></polygon>
 	</svg>
-	<button class="closeDrawers codeCloser move" onclick="revert()" tabindex="0"></button>
-	<button class="closeDrawers liesCloser move" onclick="revert()" tabindex="0"></button>
+	<button class="closeDrawers codeCloser move" onclick="revert()" tabindex="0">
+		<svg class="icon icon-cross">
+			<use xlink:href="#icon-cross"></use>
+		</svg>
+	</button>
+	<button class="closeDrawers liesCloser move" onclick="revert()" tabindex="0">
+		<svg class="icon icon-cross">
+			<use xlink:href="#icon-cross"></use>
+		</svg>
+	</button>
+		<!--<polygon class="codeShapePoly" points="75,0 100,0 100,100 25,100"
+		</svg>
+		<svg id="liesShape" width='100%' height='100%' viewBox="0 0 100 100" preserveAspectRatio="none">
+			<polygon points="0,0 75,0 0,25 0,100" fill="var(--liesBackGround)"/>
+		</svg>-->
 	<script src="node_modules/velocity-animate/velocity.min.js"></script>
 	<script src="app.js"></script>
 	</body>

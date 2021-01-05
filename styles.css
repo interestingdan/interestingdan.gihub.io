@@ -1,26 +1,86 @@
 :root {
 	--liesBackGround: white;
 	--codeBackGround: black;
-	--buttonWidth: 14%;
-	--buttonHeight: 12%;
-	--buttonOffset: 28%;
-	--buttonOffsetX: 28%;
-	--clickedShiftY: 66%;
-	--clickedShiftX: 45%;
-	--linksLeftOffset: 20%;
-	--staticCornerVW: 20vh;
-	--staticCornerButtonOffset: 2.25vh;
-	font-size: 4.25vh;
+	--buttonWidth: 16vw;
+	--buttonHeight: calc(var(--vh, 1vh) * 12.5); /*This is part of a cludge that gets around the fact that 100vh is not 100vh on mobile*/
+	--buttonOffsetX: 26.5vw;
+	/*--buttonOffsetY: 29.5vh;*/
+	--buttonOffsetY: calc(var(--vh, 1vh) * 29.5);
+	--linksLeftOffset: 20vw;
+	/*--staticCornerButtonOffset: 2.25vh;*/
+	--staticCornerButtonOffset: 16px;
+	--staticCornerVW: calc(var(--staticCornerButtonOffset) * 9); /*144px*/
+		/*the below hinky nonsense ensures that the main buttons land in the right spot even if you move their starting position around*/
+	/*--clickedShiftX: 49vw;*/
+	/*--clickedShiftY: 65vh;*/
+	--clickedShiftX: calc(100vw - calc(
+			var(--buttonWidth) + var(--staticCornerVW)
+			)
+			- calc(var(--buttonOffsetX) - calc(var(--buttonWidth)/2))
+			);
+	--clickedShiftY: calc(calc(var(--vh, 1vh) * 100) - calc(
+		var(--buttonHeight)
+		)
+		- calc(var(--buttonOffsetY) - calc(var(--buttonHeight)/2))
+		);
+
+	/*--staticCornerVW: 20vh;*/
+
+	--linksBoxWidth: 800px;
+	font-size: 24px;
+	/*
+	--staticCornerButtonOffset: calc(var(--staticCornerVW) * 0.12);
+	--staticCornerVW: 14.08vw;
+	*/
+	/*font-size: 2.8vh;*/
+
+}
+
+@media (max-width : 1088px) {
+	:root {
+	--buttonWidth: 20vw;
+	--linksBoxWidth: calc(100% - 288px)
+	}
 }
 
 @media (max-aspect-ratio : 1/1) {
 	:root {
-	--linksLeftOffset: 5%;
+	/*--linksLeftOffset: 5%;*/
+	/*--staticCornerVW: 15.625vw;*/
+	/*--staticCornerVW: 12vh;*/
+	/*--buttonWidth: 40%;*/
 	font-size: 2.8vh;
-	--clickedShiftX: 10%;
-	--buttonWidth: 38%;
+	--buttonWidth: 33vw;
+	--buttonHeight: 14vh;
+	--buttonOffsetX: 37.5vw;
+	--buttonOffsetY: 22vh;
+	--linksBoxWidth: 80%;
+	--staticCornerButtonOffset: 18px;
+	--staticCornerButtonOffset: 3.2vw;
 	}
 }
+
+/*@media only screen and (max-width : 768px) {
+	:root {
+	--linksLeftOffset: 3%;
+	--staticCornerVW: 15.625vw;
+		--buttonWidth: 40%;
+	}
+}*/
+
+/*@media (max-width: 1680px) { 1440*900, or 1.6/1
+	:root {
+	--linksLeftOffset: 22.1875%;
+	--staticCornerVW: 15.625vw;
+	}
+}
+
+@media (max-width: 1403px) { /*1366*768 1.7/1
+	:root {
+	--linksLeftOffset: 20%;
+	--staticCornerVW: 14.08vw;
+	}
+}*/
 
 * {
   padding: 0;
@@ -42,32 +102,37 @@ a:hover {
 }
 
 button {
-	border-radius: 8em;
+	border-radius: 10000px; /*this is how you do a 'pill' button*/
 	border: none;
 	z-index: 4;
 }
 
 button:focus {
-outline: none;
+	outline: none;
+}
+
+.resize-animation-stopper * {
+  animation: none !important;
+  transition: none !important;
 }
 
 .openDrawers {
 	position: fixed;
 	width: var(--buttonWidth);
 	height: var(--buttonHeight);
-	font-size: 7.5vh;
-	transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, background-color 0.07s;
+	font-size: 8vh;
+	transition: transform 0.5s ease-in, color 0.07s, background-color 0.07s;
 }
 
 .liesButton {
 	background-color: var(--liesBackGround);
 	color: var(--codeBackGround);
-	font-family: cursive;
+	font-family: "Dancing Script", cursive;
 	top: calc(
-		var(--buttonOffset) - calc(
+		var(--buttonOffsetY) - calc(
 			var(--buttonHeight) / 2));
 	left: calc(
-		var(--buttonOffset) - calc(
+		var(--buttonOffsetX) - calc(
 			var(--buttonWidth) / 2));
 }
 
@@ -82,14 +147,7 @@ outline: none;
 }
 
 .liesButton.liesShow {
-	top: calc(var(--clickedShiftY) +
-		calc(
-		var(--buttonOffset) - calc(
-			var(--buttonHeight) / 2)));
-	left: calc(var(--clickedShiftX) +
-		calc(
-		var(--buttonOffset) - calc(
-			var(--buttonWidth) / 2)));
+	transform: translateY(var(--clickedShiftY)) translateX(var(--clickedShiftX));
 	background-color: transparent;
 }
 
@@ -102,37 +160,38 @@ outline: none;
 }
 
 .liesButton.codeShow {
-	top: calc(
-		calc(
-			var(--buttonOffset) -
-			calc(var(--buttonHeight) / 2)
-			)
-			- var(--clickedShiftY)
-			);
-	left: calc(
-		calc(
-			var(--buttonOffset) - calc(
-				var(--buttonWidth) / 2)
-				)
-		- var(--clickedShiftX)
-		);
+	transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(--clickedShiftX)));
 	background-color: transparent;
 }
+
+/*.qguide {
+	height: 81px;
+	width: 81px;
+	background-color: green;
+	position: fixed;
+	top: calc(
+			var(--buttonOffset) - calc(
+				var(--buttonHeight) / 2) + 2.25vh);
+left: calc(
+					var(--buttonOffset) - calc(
+						var(--buttonWidth) / 2));
+	z-index: 5;
+}*/
 
 .codeButton {
 	background-color: var(--codeBackGround);
 	color: var(--liesBackGround);
 	font-family: 'Geo', monospace;
-	top: calc(100% -
+	top: calc(calc(var(--vh, 1vh) * 100) -
 		calc(
-			var(--buttonOffset) + calc(
+			var(--buttonOffsetY) + calc(
 				var(--buttonHeight) / 2
 			)
 		)
 	);
-	left: calc(100% -
+	left: calc(100vw -
 		calc(
-			var(--buttonOffset) + calc(
+			var(--buttonOffsetX) + calc(
 				var(--buttonWidth) / 2
 			)
 		)
@@ -150,50 +209,12 @@ outline: none;
 }
 
 .codeButton.codeShow{
-	top: calc(
-		calc(100% -
-			calc(
-				var(--buttonOffset) + calc(
-					var(--buttonHeight) / 2
-				)
-			)
-		)
-	- var(--clickedShiftY)
-	);
-	left:
-	calc(
-		calc(100% -
-			calc(
-				var(--buttonOffset) + calc(
-					var(--buttonWidth) / 2
-		)
-	)
-	- var(--clickedShiftX)	)
-	);
+transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(--clickedShiftX)));
 	background-color: transparent;
 }
 
 .codeButton.liesShow {
-	top:
-		calc(var(--clickedShiftY) +
-			calc(100% -
-				calc(
-					var(--buttonOffset) + calc(
-						var(--buttonHeight) / 2
-						)
-					)
-				)
-			);
-	left:
-		calc(var(--clickedShiftX) +
-			calc(100% -
-				calc(
-					var(--buttonOffset) + calc(
-						var(--buttonWidth) / 2
-						)
-					)
-				)
-			);
+	transform: translateY(var(--clickedShiftY)) translateX(var(--clickedShiftX));
 	background-color: transparent;
 }
 
@@ -205,16 +226,24 @@ outline: none;
 	color: var(--liesBackGround);
 }
 
-
+#shapecontainercontainer {
+	position: fixed;
+	top: 0%;
+	height: 100vw;
+	width: 100%;
+}
 
 #shapeContainer {
-	position: fixed;
+	position: fixed  !important;
 	height: 100%;
 	width: 100%;
 	z-index: 1;
+	/*transition:transition: left 0.5s ease-in, top 0.5s ease-in,*/
 	color: var(--codeBackGround);
-	background-color: var(--liesBackGround);
+	/*background-color: var(--liesBackGround);*/
 }
+
+/* Closer Buttons */
 
 .closeDrawers {
 	position: fixed;
@@ -223,6 +252,23 @@ outline: none;
 	transition: opacity 1.2s;
 	visibility: hidden;
 	opacity: 0;
+}
+
+.icon {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  stroke-width: 0;
+  fill: green;
+	visibility:inherit;
+}
+
+.liesCloser > .icon {
+	fill: var(--codeBackGround);
+}
+
+.codeCloser > .icon {
+	fill: var(--liesBackGround);
 }
 
 .topCorner {
@@ -279,14 +325,19 @@ outline: none;
 	z-index: 4;
 }
 
+
+
+
 .linksContainer {
 	position: fixed;
 	width: 100%;
-	padding-left: var(--linksLeftOffset);
+	/*padding-left: var(--linksLeftOffset);
 	padding-right: var(--linksLeftOffset);
-	opacity: 1;
+	/*width: calc(100% - calc(2 * var(--linksLeftOffset)));*/
 	z-index: 2;
-	transition: left 0.5s ease-in, top 0.5s ease-in, width 0.5s ease-in, opacity 0.5s ease-in;
+	opacity: 0;
+	transition: transform 0.5s ease-in, opacity 0.5s ease-in; /*color 0.07s,*/ /*width 0.5s ease-in,*/ /*opacity 0.5s ease-in*/;
+	height: 100%
 }
 
 .liesLinksContainer {
@@ -302,33 +353,56 @@ outline: none;
 }
 
 .liesLinksContainer.liesShow {
-	position: fixed;
-	left: 0%;
-	top: 0%;
+	/*visibility: visible;*/
+	transform: translateY(var(--clickedShiftY)) translateX(var(--clickedShiftX));
+	/*top: calc(1.5 * var(--buttonHeight));*/
+	/*z-index: 2;*/
+	/*height: 100%;*/
+	/*height: calc(100% - calc(1.5 * var(--buttonHeight)));*/
 	opacity: 1;
-	height: 100%;
+	z-index: 3;
 }
 
 .codeLinksContainer.codeShow {
 	position: fixed;
 	/*visibility: visible;*/
-	left: 0%;
-	top: 0%;
+	transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(--clickedShiftX)));
+	/*opacity: 1;*/
+	/*top: calc(1.5 * var(--buttonHeight));*/
+	/*height: 100%;
+	/*height: calc(100% - calc(1.5 * var(--buttonHeight)));*/
 	opacity: 1;
-	height: 100%;
+	z-index: 3
 }
 
 .linksClass {
-	height: 100%;
-	margin-top: 2rem;
-	width: calc(100% - calc(2 * var(--linksLeftOffset)));
+	height: auto;
+	margin-top: 60px;
+	/*width: calc(100% - calc(2 * var(--linksLeftOffset)));*/
+	margin-left: auto;
+	margin-right: auto;
+	width: auto;
+	max-width: var(--linksBoxWidth);
+	/*position: fixed;
+	opacity: 0;*/
+	/*visibility: hidden;*/
+	/*transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, opacity 0.5s;*/
+	/*z-index: -2;*/
 	display: grid;
 	grid-template-columns: 17.5% 77.5%;
 	grid-template-rows: repeat(auto-fill, auto);
-	grid-gap: 2.5rem 4.5%;
+	grid-gap: 55px 4.5%;
 	opacity: 0;
 	transition: opacity 0.5s ease-in;
 	visibility: hidden !important;
+}
+
+.spacer {
+	height: var(--buttonHeight);
+}
+
+.codeLinks {
+	margin-top: calc(var(--buttonHeight) * 1.2);
 }
 
 .liesLinks.liesShow {
@@ -345,50 +419,6 @@ outline: none;
 
 .codeLinks.visible {
 	visibility: visible !important;
-}
-
-.fader {
-	position: fixed;
-	width: 100vw;
-	height: calc(1.5 * var(--buttonHeight));
-	z-index: -2;
-	opacity: 0;
-	transition: left 0.5s ease-in, top 0.5s ease-in, opacity 0.5s ease-in;
-}
-
-.liesFader {
-	top: calc(calc(100% - calc(1.5 * var(--buttonHeight))) - var(--clickedShiftY));
-	left: calc(var(--linksLeftOffset) - var(--clickedShiftX));
-	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+33,ffffff+100&0+0,1+33,1+100 */
-	background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 33%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-}
-
-.codeFader {
-	top: calc(0% + var(--clickedShiftY));
-	left: calc(var(--linksLeftOffset) + var(--clickedShiftX));
-	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+66,ffffff+100&1+0,1+66,0+100 */
-	background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 66%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 66%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 66%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
-
-}
-
-.liesFader.liesShow {
-	opacity: 1;
-	z-index: 3;
-	left: var(--linksLeftOffset);
-	top: calc(100% - calc(1.5 *var(--buttonHeight)));
-}
-
-.codeFaderShow.codeFader {
-	opacity: 1;
-	z-index: 3;
-	left: var(--linksLeftOffset);
-	top: 0%;
 }
 
 .portImg {
@@ -410,43 +440,128 @@ h1 {
 	text-align: center;
 }
 
+i {
+	color: #4A4A4A;
+}
+/*.linksSpacer {
+	height: var(--buttonHeight);
+	height: calc(1.5 * var(--buttonHeight));
+	height: calc(3 * var(--buttonHeight));
+}*/
+
+/* Fader Element */
+
+.fader {
+	position: fixed;
+	width: 100vw;
+	height: calc(1.2 * var(--buttonHeight));
+	/*z-index: -2;*/
+	opacity: 0;
+	transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+	/*transition: left 0.5s ease-in, top 0.5s ease-in, opacity 0.5s ease-in;*/
+}
+
+.liesFader {
+	top: calc(calc(100% - calc(1.2 * var(--buttonHeight))) - var(--clickedShiftY));
+	left: calc(0% - var(--clickedShiftX));
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+33,ffffff+100&0+0,1+33,1+100 */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 33%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.codeFader {
+	top: var(--clickedShiftY);
+	left: var(--clickedShiftX);
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+66,ffffff+100&1+0,1+66,0+100 */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 66%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 66%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 66%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+
+}
+
+.liesFader.liesShow {
+	opacity: 1;
+	z-index: 3;
+	/*left: var(--linksLeftOffset);
+	top: calc(100% - calc(1.5 * var(--buttonHeight)));*/
+	transform: translateY(var(--clickedShiftY)) translateX(var(--clickedShiftX));
+}
+
+.codeFader.codeShow {
+	opacity: 1;
+	z-index: 3;
+	/*left: var(--linksLeftOffset);*/
+	/*top: 0%;*/
+	transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(--clickedShiftX)));
+}
+
+/*.portItem {
+	display: flex;
+	padding: 3%;
+	height: auto;
+	align-items: center;
+}*/
+
+/*.linksSpacer {
+	min-height: calc(calc(var(--buttonHeight) * 1.5) - 115px)
+}*/
+
 .liesScroll > .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle {
-	width: 13px !important;
+	/*width: 13px !important;*/
+	position: absolute;
+	width: calc(var(--staticCornerVW) * 0.375);
+	right: var(--staticCornerButtonOffset) !important;
+	height: 100%;
+	border-radius: 10000px;
+	background-color: var(--liesBackGround);
+	box-shadow: 0 0 0 2px var(--codeBackGround);
+
 }
 
 .liesScroll > .os-scrollbar-vertical {
-	position: absolute !important;
-	left: 6% !important;
-	top: 8% !important;
-	bottom: 8% !important;
+	position: fixed !important;
+	/*right: 2.25vh !important;*/
+	top: var(--staticCornerButtonOffset) !important;
+	bottom: calc(var(--staticCornerButtonOffset) + var(--staticCornerVW)) !important;
 }
 
 @media (max-aspect-ratio : 1/1) {
 	.liesScroll > .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle {
-	width: 8px !important;
+		width: 3px;
+		background-color: var(--codeBackGround);
+		box-shadow: none;
 }
 
 .liesScroll > .os-scrollbar-vertical {
-	position: absolute !important;
-	left: 1% !important;
-}}
+}
 
 .codeScroll > .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle {
-	width: 13px !important;
+	position: fixed !important;
+	width: calc(var(--staticCornerVW) * 0.375);
+	left: var(--staticCornerButtonOffset) !important;
+	height: 100%;
+	border-radius: 10000px;
+	background-color: var(--codeBackGround);
+	box-shadow: 0 0 0 2px var(--liesBackGround);
+
 }
 
 .codeScroll > .os-scrollbar-vertical {
 	position: absolute !important;
-	left: 65% !important;
-	top: 18% !important;
-	bottom: 8% !important;
+	top: calc(var(--staticCornerButtonOffset) + var(--staticCornerVW)) !important;
+	bottom: var(--staticCornerButtonOffset) !important;
 }
 
 @media (max-aspect-ratio : 1/1) {.codeScroll > .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle {
-	width: 8px !important;
+	width: 3px;
+	background-color: var(--liesBackGround);
+	box-shadow: none;
 }
 
 .codeScroll > .os-scrollbar-vertical {
-	position: absolute !important;
-	left: 88% !important;
+
+}
 }
