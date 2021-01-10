@@ -43,7 +43,8 @@ function lies(){
 	Velocity(shape, {
 		points: ["100,100 100,100 100,100 100,100 100,100"]
 	},{
-		duration: 500
+		duration: 500,
+		easing: "ease-in"
 	});
 	addClass('liesShow');
 	document.getElementsByClassName('delay')[0].classList.add('visible');
