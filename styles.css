@@ -240,7 +240,24 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 	z-index: 1;
 	/*transition:transition: left 0.5s ease-in, top 0.5s ease-in,*/
 	color: var(--codeBackGround);
-	background-color: var(--liesBackGround);*/
+	background-color: var(--liesBackGround);
+}
+
+#liesShape {
+	visibility: visible;
+}
+
+
+#codeShape {
+	visibility: visible;
+}
+
+#liesShape.codeShow {
+	visibility: hidden;
+}
+
+#codeShape.liesShape {
+	visibility: hidden;
 }
 
 /* Closer Buttons */

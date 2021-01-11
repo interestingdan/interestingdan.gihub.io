@@ -1,11 +1,11 @@
 const move = Array.from(document.getElementsByClassName('move'));
-var shape = document.getElementById('shape');
+var codeShape = document.getElementById('codeShape');
+var liesShape = document.getElementById('liesShape');
 
 function addClass(classToAdd) {
-	var j = move.length;
-	for (i = 0; i < j; i++) {
-		move[i].classList.add(classToAdd);
-	};
+	for (element of move) {
+		element.classList.add(classToAdd);
+	}
 }
 //This is a cludge to make vh work on mobile, courtesy of CSS Tricks
 function emulateVH(){
@@ -40,7 +40,7 @@ window.addEventListener("resize", () => {
 });
 
 function lies(){
-	Velocity(shape, {
+	Velocity(codeShape, {
 		points: ["100,100 100,100 100,100 100,100 100,100"]
 	},{
 		duration: 500,
@@ -52,7 +52,7 @@ function lies(){
 }
 
 function code(){
-	Velocity(shape, {
+	Velocity(liesShape, {
 		points: ["1,0.000001 100,0.000001 100,100 0.000001,100 0.000001,1"]
 		//SVGpoints in Velocity don't respond well to values of zero
 	},{
@@ -69,12 +69,19 @@ async function revert(){
 		move[i].classList.remove('liesShow');
 		move[i].classList.remove('codeShow');
 		};
-	Velocity(shape, {
+	Velocity(codeShape, {
 		points: ["100,0 100,0 100,100 0,100 0,100"]
 	},{
 		duration: 500,
 		easing: "ease-in",
 	});
+	Velocity(liesShape, {
+		points: ["0,0 100,0 100,0 0,100 0,100"]
+	},{
+		duration: 500,
+		easing: "ease-in",
+	});
+
 	await new Promise(r => setTimeout(r, 500));//this little stunt allows elements to be hidden when they need to be, but also transition visibly
 	document.getElementsByClassName('delay')[0].classList.remove('visible');
 	document.getElementsByClassName('delay')[1].classList.remove('visible');
