@@ -46,6 +46,12 @@ function lies(){
 		duration: 500,
 		easing: "ease-in"
 	});
+	/*Velocity(liesShape, {
+		points: ["0,0 100,0 101,0 0,101 0,101"]
+	},{
+		duration: 500,
+		easing: "ease-in"
+	});*/
 	addClass('liesShow');
 	document.getElementsByClassName('delay')[0].classList.add('visible');
 
