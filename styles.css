@@ -252,11 +252,11 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 	visibility: visible;
 }
 
-#liesShape.codeShow {
+#liesShape.liesShow {
 	visibility: hidden;
 }
 
-#codeShape.liesShape {
+#codeShape.codeShow {
 	visibility: hidden;
 }
 

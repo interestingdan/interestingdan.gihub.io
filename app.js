@@ -1,6 +1,7 @@
 const move = Array.from(document.getElementsByClassName('move'));
-var codeShape = document.getElementById('codeShape');
-var liesShape = document.getElementById('liesShape');
+const codeShape = document.getElementById('codeShape');
+const liesShape = document.getElementById('liesShape');
+var state = "unset";
 
 function addClass(classToAdd) {
 	for (element of move) {
@@ -52,43 +53,53 @@ function lies(){
 		duration: 500,
 		easing: "ease-in"
 	});*/
-	addClass('liesShow');
+	state = "liesShow";
+	addClass(state);
 	document.getElementsByClassName('delay')[0].classList.add('visible');
 
 }
 
 function code(){
 	Velocity(liesShape, {
-		points: ["1,0.000001 100,0.000001 100,100 0.000001,100 0.000001,1"]
+		//points: ["1,0.000001 100,0.000001 100,100 0.000001,100 0.000001,1"]
+		points: ["0.00001,0.00001 0.00001,0.00001 0.00001,0.00001 0.00001,0.00001 0.00001,0.00001"]
 		//SVGpoints in Velocity don't respond well to values of zero
 	},{
 		duration: 500,
 		easing: "ease-in",
 	});
-	addClass('codeShow');
+	state = "codeShow";
+	addClass(state);
 	document.getElementsByClassName('delay')[1].classList.add('visible');
 }
 
 async function revert(){
-	var j = move.length;
+	/*var j = move.length;
 	for (i = 0; i < j; i++) {
 		move[i].classList.remove('liesShow');
 		move[i].classList.remove('codeShow');
-		};
+	};*/
+	for (element of move) {
+		element.classList.remove(state);
+	}
+	if (state === "liesShow") {
 	Velocity(codeShape, {
 		points: ["100,0 100,0 100,100 0,100 0,100"]
 	},{
 		duration: 500,
 		easing: "ease-in",
 	});
+} else if (state === "codeShow") {
 	Velocity(liesShape, {
 		points: ["0,0 100,0 100,0 0,100 0,100"]
 	},{
 		duration: 500,
 		easing: "ease-in",
 	});
+}
 
 	await new Promise(r => setTimeout(r, 500));//this little stunt allows elements to be hidden when they need to be, but also transition visibly
 	document.getElementsByClassName('delay')[0].classList.remove('visible');
 	document.getElementsByClassName('delay')[1].classList.remove('visible');
+	state='unset';
 }
