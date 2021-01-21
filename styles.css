@@ -89,7 +89,19 @@
 
 html, body {
 	overflow: hidden;
-	color: var(--liesBackGround);
+}
+
+#background {
+	color: red;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+}
+
+#background.codeShow {
+	color: var(--codeBackGround);
+}
+
 }
 
 a {
@@ -243,7 +255,7 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 	background-color: var(--liesBackGround);
 }
 
-#liesShape {
+/*#liesShape {
 	visibility: visible;
 }
 
@@ -251,7 +263,7 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 #codeShape {
 	visibility: visible;
 }
-
+*/
 #liesShape.liesShow {
 	visibility: hidden;
 }
@@ -311,7 +323,7 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 .codeCloser.codeShow {
 	visibility: visible;
 	opacity: 1;
-	z-index: 4;
+	z-index: 5;
 }
 
 
@@ -339,7 +351,7 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 .liesCloser.liesShow{
 	visibility: visible;
 	opacity: 1;
-	z-index: 4;
+	z-index: 5;
 }
 
 
@@ -503,7 +515,6 @@ i {
 .liesFader.liesShow {
 	opacity: 1;
 	z-index: 3;
-	visibility: visible;
 	/*left: var(--linksLeftOffset);
 	top: calc(100% - calc(1.5 * var(--buttonHeight)));*/
 	transform: translateY(var(--clickedShiftY)) translateX(var(--clickedShiftX));
@@ -512,7 +523,6 @@ i {
 .codeFader.codeShow {
 	opacity: 1;
 	z-index: 3;
-	visibility: visible;
 	/*left: var(--linksLeftOffset);*/
 	/*top: 0%;*/
 	transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(--clickedShiftX)));
