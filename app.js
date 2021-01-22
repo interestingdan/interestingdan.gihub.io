@@ -63,6 +63,7 @@ function code(){
 	Velocity(liesShape, {
 		//points: ["1,0.000001 100,0.000001 100,100 0.000001,100 0.000001,1"]
 		points: ["0.00001,0.00001 0.00001,0.00001 0.00001,0.00001 0.00001,0.00001 0.00001,0.00001"]
+		//points: ["0,0 0,0 0,0 0,0 0,0"]
 		//SVGpoints in Velocity don't respond well to values of zero
 	},{
 		duration: 500,
@@ -91,7 +92,7 @@ async function revert(){
 	});
 } else if (state === "codeShow") {
 	Velocity(liesShape, {
-		points: ["0,0 100,0 100,0 0,100 0,100"]
+		points: ["0.00001,0.00001 100,0.00001 100,0.00001 0.00001,100 0.00001,100"]
 	},{
 		duration: 500,
 		easing: "ease-in",
