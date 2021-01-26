@@ -32,21 +32,7 @@
 			<!--<polygon id="shape" points="100,0 100,0 100,100 0,100 0,100"></polygon>-->
 		</defs>
 	</svg>
-	<div id="shapecontainercontainer">
-		<svg id="shapeContainer" viewbox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-		<polygon id="codeShape" class="move" points="100,0 100,0 100,100 0,100 0,100" fill="var(--codeBackGround)"></polygon>
-		<polygon id="liesShape" class="move" points="0,0 100,0 100,0 0,100 0,100" fill="var(--liesBackGround)"></polygon>
-		<!--<defs>
-			<linearGradient id="codeBackGroundGradient" x1="100%" y1="100%" x2="0%" y2="0%">
-				<stop class="stop1" offset="0%" stop-color="rgba(0,0,0,1)" />
-        <stop class="stop2" offset="50%" stop-color="rgba(10,10,10,1)" />
-        <stop class="stop3" offset="100%" stop-color="rgba(20,20,20,1)" />
-			</linearGradient>
-		</defs>-->
-		<!--<polygon class="shrinkBackground move" points="100,0 100,100 0,100" fill="var(--codeBackGround)"></polygon>-->
-		<!--<use xlink:href="#shape"></use>-->
-		</svg>
-	</div>
+
 	<!--<div class="move"></div>-->
 
 	<!--<div class="qguide"></div>-->
@@ -116,6 +102,26 @@
 	</div>
 	<div class="fader liesFader move"></div>
 	<div class="fader codeFader move"></div>
+	<div class="shapecontainercontainer" id="fakeBackground"></div>
+	<div class="shapecontainercontainer" id="codeShapeContainer">
+		<svg class="shapeContainer" viewbox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+			<polygon id="codeShape" class="move" points="100,0 100,0 100,100 0,100 0,100" fill="var(--codeBackGround)"></polygon>
+		<!--<defs>
+			<linearGradient id="codeBackGroundGradient" x1="100%" y1="100%" x2="0%" y2="0%">
+				<stop class="stop1" offset="0%" stop-color="rgba(0,0,0,1)" />
+        <stop class="stop2" offset="50%" stop-color="rgba(10,10,10,1)" />
+        <stop class="stop3" offset="100%" stop-color="rgba(20,20,20,1)" />
+			</linearGradient>
+		</defs>-->
+		<!--<polygon class="shrinkBackground move" points="100,0 100,100 0,100" fill="var(--codeBackGround)"></polygon>-->
+		<!--<use xlink:href="#shape"></use>-->
+		</svg>
+	</div>
+	<div class="shapecontainercontainer" id="codeShapeContainer">
+		<svg class="shapeContainer" viewbox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+			<polygon id="liesShape" class="move" points="0,0 100,0 100,0 0,100 0,100" fill="var(--liesBackGround)"></polygon>
+		</svg>
+	</div>
 	<svg class="bottomCorner move" width="10vw" height="10vw" viewbox="0 0 100 100" preserveAspectRatio="none" fill="var(--codeBackGround)">
 		<polygon points="100,0 100,100 0,100" ></polygon>
 	</svg>

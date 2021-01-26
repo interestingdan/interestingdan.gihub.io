@@ -1,8 +1,10 @@
 const move = Array.from(document.getElementsByClassName('move'));
 const codeShape = document.getElementById('codeShape');
 const liesShape = document.getElementById('liesShape');
-const shapeContainer = document.getElementById('shapeContainer');
+const fakeBackground = document.getElementById('fakeBackground');
 var state = "unset";
+const speedvar = 500;
+document.documentElement.style.setProperty('--speedvar', `${speedvar / 1000}s ease-in`);
 
 function addClass(classToAdd) {
 	for (element of move) {
@@ -45,7 +47,7 @@ function lies(){
 	Velocity(codeShape, {
 		points: ["100,100 100,100 100,100 100,100 100,100"]
 	},{
-		duration: 500,
+		duration: speedvar,
 		easing: "ease-in"
 	});
 	/*Velocity(liesShape, {
@@ -67,12 +69,12 @@ function code(){
 		//points: ["0,0 0,0 0,0 0,0 0,0"]
 		//SVGpoints in Velocity don't respond well to values of zero
 	},{
-		duration: 500,
+		duration: speedvar,
 		easing: "ease-in",
 	});
 	state = "codeShow";
 	addClass(state);
-	shapeContainer.classList.add(state);
+	fakeBackground.classList.add(state);
 	document.getElementsByClassName('delay')[1].classList.add('visible');
 }
 
@@ -89,23 +91,23 @@ async function revert(){
 	Velocity(codeShape, {
 		points: ["100,0 100,0 100,100 0,100 0,100"]
 	},{
-		duration: 500,
+		duration: speedvar,
 		easing: "ease-in",
 	});
 } else if (state === "codeShow") {
 	Velocity(liesShape, {
 		points: ["0.00001,0.00001 100,0.00001 100,0.00001 0.00001,100 0.00001,100"]
 	},{
-		duration: 500,
+		duration: speedvar,
 		easing: "ease-in",
 	});
 }
 
-	await new Promise(r => setTimeout(r, 500));//this little stunt allows elements to be hidden when they need to be for accessibility reasons, but also transition opacity visibly
+	await new Promise(r => setTimeout(r, speedvar));//this little stunt allows elements to be hidden when they need to be for accessibility reasons, but also transition opacity visibly
 	document.getElementsByClassName('delay')[0].classList.remove('visible');
 	document.getElementsByClassName('delay')[1].classList.remove('visible');
 	//if (state === codeShow) {
-		shapeContainer.classList.remove(state);
+		fakeBackground.classList.remove(state);
 	//}
 	state='unset';
 }

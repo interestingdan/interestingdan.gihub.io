@@ -133,7 +133,8 @@ button:focus {
 	width: var(--buttonWidth);
 	height: var(--buttonHeight);
 	font-size: 8vh;
-	transition: transform 0.5s ease-in, color 0.07s, background-color 0.07s;
+	transition: transform var(--speedvar), color 0.07s, background-color 0.07s;
+	z-index: 5;
 }
 
 .liesButton {
@@ -238,34 +239,38 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 	color: var(--liesBackGround);
 }
 
-#shapecontainercontainer {
+.shapecontainercontainer {
 	position: fixed;
 	top: 0%;
 	height: 100vw;
 	width: 100%;
+	z-index: 4;
 }
 
-#shapeContainer {
+.shapeContainer {
 	position: fixed  !important;
 	height: 100%;
 	width: 100%;
-	z-index: 4;
 	/*transition:transition: left 0.5s ease-in, top 0.5s ease-in,*/
-	background-color: var(--liesBackGround);
-//	background-color: blue;
+	background-color: transparent;
+	//background-color: blue;
 }
 
-#shapeContainer.codeShow {
+#fakeBackground {
+	z-index: 0;
+}
+
+#fakeBackground.codeShow {
 	background-color: var(--codeBackGround);
-//	background-color: green;
+	//background-color: green;
 }
 
 #codeShape {
-	z-index: 4;
+
 }
 
 #liesShape {
-	z-index: 4;
+
 }
 
 /*#liesShape {
@@ -378,7 +383,7 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 	/*width: calc(100% - calc(2 * var(--linksLeftOffset)));*/
 	z-index: 2;
 	opacity: 0;
-	transition: transform 0.5s ease-in, opacity 0.5s ease-in; /*color 0.07s,*/ /*width 0.5s ease-in,*/ /*opacity 0.5s ease-in*/;
+	transition: transform var(--speedvar), opacity var(--speedvar); /*color 0.07s,*/ /*width 0.5s ease-in,*/ /*opacity 0.5s ease-in*/;
 	height: 100%
 }
 
@@ -435,7 +440,7 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 	grid-template-rows: repeat(auto-fill, auto);
 	grid-gap: 55px 4.5%;
 	opacity: 0;
-	transition: opacity 0.5s ease-in;
+	transition: opacity var(--speedvar);
 	visibility: hidden !important;
 }
 
@@ -500,7 +505,8 @@ i {
 	/*z-index: -2;*/
 	z-index: 3;
 	opacity: 0;
-	transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+	transition: transform var(--speedvar), opacity var(--speedvar);
+	//visibility: hidden;
 	/*transition: left 0.5s ease-in, top 0.5s ease-in, opacity 0.5s ease-in;*/
 }
 
