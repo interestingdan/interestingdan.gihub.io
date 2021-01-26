@@ -249,15 +249,23 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 	position: fixed  !important;
 	height: 100%;
 	width: 100%;
-	z-index: 1;
+	z-index: 4;
 	/*transition:transition: left 0.5s ease-in, top 0.5s ease-in,*/
 	background-color: var(--liesBackGround);
-	background-color: blue;
+//	background-color: blue;
 }
 
 #shapeContainer.codeShow {
 	background-color: var(--codeBackGround);
-	background-color: green;
+//	background-color: green;
+}
+
+#codeShape {
+	z-index: 4;
+}
+
+#liesShape {
+	z-index: 4;
 }
 
 /*#liesShape {
@@ -285,6 +293,7 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 	height: calc(var(--staticCornerVW) * 0.375);
 	transition: opacity 1.2s;
 	visibility: hidden;
+
 	opacity: 0;
 }
 
@@ -311,23 +320,23 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 	width:var(--staticCornerVW);
 	height:var(--staticCornerVW);
 	fill: var(--liesBackGround);
-	z-index: 1;
+	z-index: 5;
 }
 
 .topCorner.codeShow {
-	z-index: 3;
+
 }
 
 .codeCloser {
 	background-color: var(--codeBackGround);
 	top: var(--staticCornerButtonOffset);
 	left: var(--staticCornerButtonOffset);
+	z-index: 6;
 }
 
 .codeCloser.codeShow {
 	visibility: visible;
 	opacity: 1;
-	z-index: 5;
 }
 
 
@@ -339,23 +348,23 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 	width:var(--staticCornerVW);
 	height:var(--staticCornerVW);
 	color: var(--codeBackGround);
-	z-index: 1;
+	z-index: 5;
 }
 
 .liesCloser {
 	background-color: var(--liesBackGround);
 	right: var(--staticCornerButtonOffset);
 	bottom: var(--staticCornerButtonOffset);
+	z-index: 6;
 }
 
 .bottomCorner.liesShow {
-		z-index: 3;
+
 }
 
 .liesCloser.liesShow{
 	visibility: visible;
 	opacity: 1;
-	z-index: 5;
 }
 
 
@@ -489,8 +498,8 @@ i {
 	width: 100vw;
 	height: calc(1.2 * var(--buttonHeight));
 	/*z-index: -2;*/
+	z-index: 3;
 	opacity: 0;
-	visibility: hidden;
 	transition: transform 0.5s ease-in, opacity 0.5s ease-in;
 	/*transition: left 0.5s ease-in, top 0.5s ease-in, opacity 0.5s ease-in;*/
 }
@@ -518,7 +527,6 @@ i {
 
 .liesFader.liesShow {
 	opacity: 1;
-	z-index: 3;
 	/*left: var(--linksLeftOffset);
 	top: calc(100% - calc(1.5 * var(--buttonHeight)));*/
 	transform: translateY(var(--clickedShiftY)) translateX(var(--clickedShiftX));
@@ -526,7 +534,6 @@ i {
 
 .codeFader.codeShow {
 	opacity: 1;
-	z-index: 3;
 	/*left: var(--linksLeftOffset);*/
 	/*top: 0%;*/
 	transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(--clickedShiftX)));

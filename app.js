@@ -1,6 +1,7 @@
 const move = Array.from(document.getElementsByClassName('move'));
 const codeShape = document.getElementById('codeShape');
 const liesShape = document.getElementById('liesShape');
+const shapeContainer = document.getElementById('shapeContainer');
 var state = "unset";
 
 function addClass(classToAdd) {
@@ -71,6 +72,7 @@ function code(){
 	});
 	state = "codeShow";
 	addClass(state);
+	shapeContainer.classList.add(state);
 	document.getElementsByClassName('delay')[1].classList.add('visible');
 }
 
@@ -99,8 +101,11 @@ async function revert(){
 	});
 }
 
-	await new Promise(r => setTimeout(r, 500));//this little stunt allows elements to be hidden when they need to be, but also transition visibly
+	await new Promise(r => setTimeout(r, 500));//this little stunt allows elements to be hidden when they need to be for accessibility reasons, but also transition opacity visibly
 	document.getElementsByClassName('delay')[0].classList.remove('visible');
 	document.getElementsByClassName('delay')[1].classList.remove('visible');
+	//if (state === codeShow) {
+		shapeContainer.classList.remove(state);
+	//}
 	state='unset';
 }
