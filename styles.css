@@ -457,7 +457,7 @@ i {
 	height: calc(1.2 * var(--buttonHeight));
 	/*z-index: -2;*/
 	opacity: 0;
-	visibility: hidden;
+	//visibility: hidden;
 	transition: transform 0.5s ease-in, opacity 0.5s ease-in;
 	/*transition: left 0.5s ease-in, top 0.5s ease-in, opacity 0.5s ease-in;*/
 }
