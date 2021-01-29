@@ -337,19 +337,21 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 	z-index: 2;
 	opacity: 0;
 	transition: transform 0.5s ease-in, opacity 0.5s ease-in; /*color 0.07s,*/ /*width 0.5s ease-in,*/ /*opacity 0.5s ease-in*/;
-	height: 100%
+	height: 100%;
 }
 
 .liesLinksContainer {
 	color: var(--codeBackGround);
 	left:calc(0% - var(--clickedShiftX));
 	top:calc(0% - var(--clickedShiftY));
+	-webkit-mask-image: -webkit-gradient(linear, left 76%, left 87.5%, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
 
 .codeLinksContainer {
 	color: var(--liesBackGround);
 	left:calc(0% + var(--clickedShiftX));
 	top: calc(0% + var(--clickedShiftY));
+		-webkit-mask-image: -webkit-gradient(linear, left 12,5%, left 24%, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
 }
 
 .liesLinksContainer.liesShow {
@@ -398,7 +400,7 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 }
 
 .spacer {
-	height: var(--buttonHeight);
+	height: calc(var(--buttonHeight) * 1.2);
 }
 
 .codeLinks {
