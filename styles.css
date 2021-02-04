@@ -4,15 +4,11 @@
 	--buttonWidth: 16vw;
 	--buttonHeight: calc(var(--vh, 1vh) * 12.5); /*This is part of a cludge that gets around the fact that 100vh is not 100vh on mobile*/
 	--buttonOffsetX: 26.5vw;
-	/*--buttonOffsetY: 29.5vh;*/
 	--buttonOffsetY: calc(var(--vh, 1vh) * 29.5);
 	--linksLeftOffset: 20vw;
-	/*--staticCornerButtonOffset: 2.25vh;*/
 	--staticCornerButtonOffset: 16px;
 	--staticCornerVW: calc(var(--staticCornerButtonOffset) * 9); /*144px*/
-		/*the below hinky nonsense ensures that the main buttons land in the right spot even if you move their starting position around*/
-	/*--clickedShiftX: 49vw;*/
-	/*--clickedShiftY: 65vh;*/
+		/*the below nonsense ensures that the main buttons land in the right spot even if you move their starting position around*/
 	--clickedShiftX: calc(100vw - calc(
 			var(--buttonWidth) + var(--staticCornerVW)
 			)
@@ -24,15 +20,8 @@
 		- calc(var(--buttonOffsetY) - calc(var(--buttonHeight)/2))
 		);
 
-	/*--staticCornerVW: 20vh;*/
-
 	--linksBoxWidth: 800px;
 	font-size: 24px;
-	/*
-	--staticCornerButtonOffset: calc(var(--staticCornerVW) * 0.12);
-	--staticCornerVW: 14.08vw;
-	*/
-	/*font-size: 2.8vh;*/
 
 }
 
@@ -45,10 +34,6 @@
 
 @media (max-aspect-ratio : 1/1) {
 	:root {
-	/*--linksLeftOffset: 5%;*/
-	/*--staticCornerVW: 15.625vw;*/
-	/*--staticCornerVW: 12vh;*/
-	/*--buttonWidth: 40%;*/
 	font-size: 2.8vh;
 	--buttonWidth: 33vw;
 	--buttonHeight: 14vh;
@@ -59,28 +44,6 @@
 	--staticCornerButtonOffset: 3.2vw;
 	}
 }
-
-/*@media only screen and (max-width : 768px) {
-	:root {
-	--linksLeftOffset: 3%;
-	--staticCornerVW: 15.625vw;
-		--buttonWidth: 40%;
-	}
-}*/
-
-/*@media (max-width: 1680px) { 1440*900, or 1.6/1
-	:root {
-	--linksLeftOffset: 22.1875%;
-	--staticCornerVW: 15.625vw;
-	}
-}
-
-@media (max-width: 1403px) { /*1366*768 1.7/1
-	:root {
-	--linksLeftOffset: 20%;
-	--staticCornerVW: 14.08vw;
-	}
-}*/
 
 * {
   padding: 0;
@@ -122,6 +85,7 @@ button:focus {
 	height: var(--buttonHeight);
 	font-size: 8vh;
 	transition: transform 0.5s ease-in, color 0.07s, background-color 0.07s;
+	cursor: pointer;
 }
 
 .liesButton {
@@ -149,6 +113,7 @@ button:focus {
 .liesButton.liesShow {
 	transform: translateY(var(--clickedShiftY)) translateX(var(--clickedShiftX));
 	background-color: transparent;
+	cursor: auto;
 }
 
 .liesButton.liesShow:hover {
@@ -209,8 +174,9 @@ left: calc(
 }
 
 .codeButton.codeShow{
-transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(--clickedShiftX)));
+	transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(--clickedShiftX)));
 	background-color: transparent;
+	cursor: auto;
 }
 
 .codeButton.liesShow {
@@ -331,12 +297,9 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 .linksContainer {
 	position: fixed;
 	width: 100%;
-	/*padding-left: var(--linksLeftOffset);
-	padding-right: var(--linksLeftOffset);
-	/*width: calc(100% - calc(2 * var(--linksLeftOffset)));*/
 	z-index: 2;
 	opacity: 0;
-	transition: transform 0.5s ease-in, opacity 0.5s ease-in; /*color 0.07s,*/ /*width 0.5s ease-in,*/ /*opacity 0.5s ease-in*/;
+	transition: transform 0.5s ease-in, opacity 0.5s ease-in;
 	height: 100%;
 }
 
@@ -355,24 +318,14 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 }
 
 .liesLinksContainer.liesShow {
-	/*visibility: visible;*/
 	transform: translateY(var(--clickedShiftY)) translateX(var(--clickedShiftX));
-	/*top: calc(1.5 * var(--buttonHeight));*/
-	/*z-index: 2;*/
-	/*height: 100%;*/
-	/*height: calc(100% - calc(1.5 * var(--buttonHeight)));*/
 	opacity: 1;
 	z-index: 3;
 }
 
 .codeLinksContainer.codeShow {
 	position: fixed;
-	/*visibility: visible;*/
 	transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(--clickedShiftX)));
-	/*opacity: 1;*/
-	/*top: calc(1.5 * var(--buttonHeight));*/
-	/*height: 100%;
-	/*height: calc(100% - calc(1.5 * var(--buttonHeight)));*/
 	opacity: 1;
 	z-index: 3
 }
@@ -380,16 +333,10 @@ transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(
 .linksClass {
 	height: auto;
 	margin-top: 60px;
-	/*width: calc(100% - calc(2 * var(--linksLeftOffset)));*/
 	margin-left: auto;
 	margin-right: auto;
 	width: auto;
 	max-width: var(--linksBoxWidth);
-	/*position: fixed;
-	opacity: 0;*/
-	/*visibility: hidden;*/
-	/*transition: left 0.5s ease-in, top 0.5s ease-in, color 0.07s, opacity 0.5s;*/
-	/*z-index: -2;*/
 	display: grid;
 	grid-template-columns: 17.5% 77.5%;
 	grid-template-rows: repeat(auto-fill, auto);
@@ -445,74 +392,8 @@ h1 {
 i {
 	color: #4A4A4A;
 }
-/*.linksSpacer {
-	height: var(--buttonHeight);
-	height: calc(1.5 * var(--buttonHeight));
-	height: calc(3 * var(--buttonHeight));
-}*/
 
-/* Fader Element */
 
-.fader {
-	position: fixed;
-	width: 100vw;
-	height: calc(1.2 * var(--buttonHeight));
-	/*z-index: -2;*/
-	opacity: 0;
-	//visibility: hidden;
-	transition: transform 0.5s ease-in, opacity 0.5s ease-in;
-	/*transition: left 0.5s ease-in, top 0.5s ease-in, opacity 0.5s ease-in;*/
-}
-
-.liesFader {
-	top: calc(calc(100% - calc(1.2 * var(--buttonHeight))) - var(--clickedShiftY));
-	left: calc(0% - var(--clickedShiftX));
-	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+33,ffffff+100&0+0,1+33,1+100 */
-	background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 33%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-}
-
-.codeFader {
-	top: var(--clickedShiftY);
-	left: var(--clickedShiftX);
-	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+66,ffffff+100&1+0,1+66,0+100 */
-	background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 66%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 66%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 66%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
-
-}
-
-.liesFader.liesShow {
-	opacity: 1;
-	z-index: 3;
-	visibility: visible;
-	/*left: var(--linksLeftOffset);
-	top: calc(100% - calc(1.5 * var(--buttonHeight)));*/
-	transform: translateY(var(--clickedShiftY)) translateX(var(--clickedShiftX));
-}
-
-.codeFader.codeShow {
-	opacity: 1;
-	z-index: 3;
-	visibility: visible;
-	/*left: var(--linksLeftOffset);*/
-	/*top: 0%;*/
-	transform: translateY(calc(-1 * var(--clickedShiftY))) translateX(calc(-1 * var(--clickedShiftX)));
-}
-
-/*.portItem {
-	display: flex;
-	padding: 3%;
-	height: auto;
-	align-items: center;
-}*/
-
-/*.linksSpacer {
-	min-height: calc(calc(var(--buttonHeight) * 1.5) - 115px)
-}*/
 
 .liesScroll > .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle {
 	/*width: 13px !important;*/
@@ -528,7 +409,6 @@ i {
 
 .liesScroll > .os-scrollbar-vertical {
 	position: fixed !important;
-	/*right: 2.25vh !important;*/
 	top: var(--staticCornerButtonOffset) !important;
 	bottom: calc(var(--staticCornerButtonOffset) + var(--staticCornerVW)) !important;
 }
