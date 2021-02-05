@@ -47,7 +47,7 @@ function lies(){
 		easing: "ease-in"
 	});
 	addClass('liesShow');
-	document.getElementsByClassName('delay')[0].classList.add('visible');
+	document.getElementsByClassName('delay')[1].classList.add('visible');
 
 }
 
@@ -60,7 +60,7 @@ function code(){
 		easing: "ease-in",
 	});
 	addClass('codeShow');
-	document.getElementsByClassName('delay')[1].classList.add('visible');
+	document.getElementsByClassName('delay')[0].classList.add('visible');
 }
 
 async function revert(){
